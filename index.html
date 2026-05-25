@@ -23,55 +23,33 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- ================= PREMIUM NAVBAR ================= -->
 
 <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
 
     <div class="container">
 
-<!-- LOGO -->
-<a class="navbar-brand" href="#home">
-    <div class="logo-box">
+        <!-- LOGO -->
 
-        <!-- Dark Mode Logo -->
-        <img src="static/image/AC 1.png" 
-             alt="AlphaCrest Logo" 
-             class="logo-img dark-logo">
+        <a class="navbar-brand" href="#home">
 
-        <!-- Light Mode Logo -->
-        <img src="static/image/AC.png" 
-             alt="AlphaCrest Logo" 
-             class="logo-img light-logo">
+            <div class="logo-box">
 
-    </div>
-</a>
-</a>
-<style>
-  .logo-img{
-    width:200px;
-    height:auto;
-}
+                <!-- DARK LOGO -->
 
-/* Default = Dark Mode */
-.light-logo{
-    display:none;
-}
+                <img src="static/image/AC 1.png"
+                     alt="Logo"
+                     class="logo-img dark-logo">
 
-.dark-logo{
-    display:block;
-}
+                <!-- LIGHT LOGO -->
 
-/* Light Mode */
-body.light-mode .light-logo{
-    display:block;
-}
+                <img src="static/image/AC.png"
+                     alt="Logo"
+                     class="logo-img light-logo">
 
-body.light-mode .dark-logo{
-    display:none;
-}
-  
+            </div>
 
-</style>
+        </a>
 
         <!-- MOBILE TOGGLE -->
 
@@ -80,60 +58,89 @@ body.light-mode .dark-logo{
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav">
 
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars-staggered"></i>
 
         </button>
 
         <!-- MENU -->
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse"
+             id="navbarNav">
 
             <ul class="navbar-nav ms-auto align-items-lg-center">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="#home">
+                    <a class="nav-link active"
+                       href="#home">
+
+                        <i class="fa-solid fa-house"></i>
+
                         Home
+
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">
-                        About Us
-                    </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="#clients">
-                        Our Clients
+                    <a class="nav-link"
+                       href="#about">
+
+                        <i class="fa-solid fa-user-group"></i>
+
+                        About
+
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#services">
+                    <a class="nav-link"
+                       href="#clients">
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                        Clients
+
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="#services">
+
+                        <i class="fa-solid fa-layer-group"></i>
+
                         Services
+
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#portfolio">
-                        Our Works
+                    <a class="nav-link"
+                       href="#portfolio">
+
+                        <i class="fa-solid fa-image"></i>
+
+                        Portfolio
+
                     </a>
                 </li>
 
-
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">
+                    <a class="nav-link"
+                       href="#contact">
+
+                        <i class="fa-solid fa-envelope"></i>
+
                         Contact
+
                     </a>
                 </li>
-
-               
 
                 <!-- THEME -->
 
                 <li class="nav-item ms-lg-3">
 
-                    <div class="theme-toggle" id="themeToggle">
+                    <div class="theme-toggle"
+                         id="themeToggle">
 
                         <i class="fa-solid fa-moon"></i>
 
@@ -149,31 +156,293 @@ body.light-mode .dark-logo{
 
 </nav>
 
+<!-- ================= NAVBAR STYLE ================= -->
+
+<style>
+
+/* ================= NAVBAR ================= */
+
+.custom-navbar{
+
+    padding:18px 0;
+
+    background:rgba(2,6,23,0.75);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,255,255,0.06);
+
+    transition:0.4s ease;
+}
+
+/* ================= LOGO ================= */
+
+.logo-img{
+    width:190px;
+    height:auto;
+}
+
+/* DARK MODE */
+
+.light-logo{
+    display:none;
+}
+
+.dark-logo{
+    display:block;
+}
+
+/* LIGHT MODE */
+
+body.light-mode .light-logo{
+    display:block;
+}
+
+body.light-mode .dark-logo{
+    display:none;
+}
+
+/* ================= NAV LINKS ================= */
+
+.navbar-nav{
+    gap:10px;
+}
+
+.nav-link{
+
+    color:#e2e8f0 !important;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    padding:12px 18px !important;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    transition:0.3s ease;
+}
+
+.nav-link i{
+    font-size:15px;
+    color:#38bdf8;
+}
+
+.nav-link:hover{
+
+    background:rgba(255,255,255,0.08);
+
+    color:white !important;
+
+    transform:translateY(-2px);
+}
+
+/* ACTIVE */
+
+.nav-link.active{
+
+    background:linear-gradient(45deg,#0d6efd,#38bdf8);
+
+    color:white !important;
+}
+
+.nav-link.active i{
+    color:white;
+}
+
+/* ================= THEME BUTTON ================= */
+
+.theme-toggle{
+
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+}
+
+.theme-toggle:hover{
+
+    transform:rotate(10deg);
+
+    background:linear-gradient(45deg,#0d6efd,#38bdf8);
+}
+
+/* ================= MOBILE TOGGLE ================= */
+
+.navbar-toggler{
+
+    border:none !important;
+
+    outline:none !important;
+
+    box-shadow:none !important;
+
+    width:50px;
+    height:50px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+}
+
+/* ================= MOBILE MENU ================= */
+
+@media(max-width:991px){
+
+    .navbar-collapse{
+
+        margin-top:18px;
+
+        padding:20px;
+
+        border-radius:24px;
+
+        background:rgba(15,23,42,0.96);
+
+        backdrop-filter:blur(16px);
+
+        border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .navbar-nav{
+
+        gap:12px;
+    }
+
+    .nav-link{
+
+        padding:16px 18px !important;
+
+        background:rgba(255,255,255,0.04);
+
+        border:1px solid rgba(255,255,255,0.05);
+
+        border-radius:16px;
+
+        font-size:16px;
+    }
+
+    .nav-link:hover{
+
+        background:linear-gradient(45deg,#0d6efd,#38bdf8);
+
+        color:white !important;
+    }
+
+    .nav-link:hover i{
+        color:white;
+    }
+
+    .theme-toggle{
+
+        margin-top:10px;
+
+        width:100%;
+        border-radius:16px;
+    }
+
+}
+
+/* ================= LIGHT MODE ================= */
+
+body.light-mode .custom-navbar{
+
+    background:rgba(255,255,255,0.85);
+
+    border-bottom:1px solid #e2e8f0;
+}
+
+body.light-mode .nav-link{
+    color:#0f172a !important;
+}
+
+body.light-mode .nav-link:hover{
+
+    background:#eff6ff;
+}
+
+body.light-mode .navbar-collapse{
+
+    background:white;
+}
+
+body.light-mode .theme-toggle{
+
+    background:#eff6ff;
+
+    color:#0f172a;
+
+    border:1px solid #dbeafe;
+}
+
+body.light-mode .navbar-toggler{
+
+    background:#eff6ff;
+
+    color:#0f172a;
+}
+
+body.light-mode .nav-link{
+    background:transparent;
+}
+
+body.light-mode .nav-link i{
+    color:#0d6efd;
+}
+
+</style>
 
 
-<!-- ================= HERO SECTION ================= -->
 
-<section class="hero-ultra" id="home">
+<!-- ================= PREMIUM HERO SECTION ================= -->
+
+<section class="hero-premium" id="home">
 
     <!-- BACKGROUND EFFECTS -->
 
-    <div class="bg-circle bg-circle-1"></div>
-    <div class="bg-circle bg-circle-2"></div>
+    <div class="hero-blur hero-blur-1"></div>
+    <div class="hero-blur hero-blur-2"></div>
 
     <div class="container">
 
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center min-vh-100 gy-5">
 
             <!-- LEFT CONTENT -->
 
-            <div class="col-lg-6 hero-content"
+            <div class="col-lg-6"
                  data-aos="fade-right">
 
                 <!-- BADGE -->
 
-                <div class="hero-mini-badge">
+                <div class="hero-badge">
 
-                    <i class="fa-solid fa-sparkles"></i>
+                    <i class="fa-solid fa-bolt"></i>
 
                     #1 Creative Digital Marketing Agency
 
@@ -181,31 +450,27 @@ body.light-mode .dark-logo{
 
                 <!-- TITLE -->
 
-                <h1 class="ultra-title">
+                <h1 class="hero-title">
 
-                    We Create <br>
-
-                    <span>Powerful Brands</span>
-
-                    That Dominate <br>
-
-                    Social Media.
+                    We Build
+                    <span>Powerful Digital Brands</span>
+                    That Grow Faster Online.
 
                 </h1>
 
                 <!-- DESCRIPTION -->
 
-                <p class="ultra-description">
+                <p class="hero-description">
 
-                    We help businesses grow with
-                    cinematic content, performance marketing,
-                    viral social media strategies and premium branding.
+                    We help businesses scale with premium branding,
+                    cinematic content, viral social media marketing,
+                    performance ads and modern creative strategies.
 
                 </p>
 
                 <!-- BUTTONS -->
 
-                <div class="hero-action-buttons">
+                <div class="hero-buttons">
 
                     <a href="#contact"
                        class="hero-btn-primary">
@@ -219,7 +484,7 @@ body.light-mode .dark-logo{
                     <a href="#portfolio"
                        class="hero-btn-secondary">
 
-                        View Our Works
+                        View Portfolio
 
                     </a>
 
@@ -229,17 +494,25 @@ body.light-mode .dark-logo{
 
                 <div class="hero-stats">
 
-                    <div class="hero-stat-box">
+                    <div class="hero-stat-card">
 
-                        <h2>150+</h2>
-                        <span>Projects</span>
+                        <h2>
+                            <span class="counter"
+                                  data-target="150">0</span>+
+                        </h2>
+
+                        <p>Projects Completed</p>
 
                     </div>
 
-                    <div class="hero-stat-box">
+                    <div class="hero-stat-card">
 
-                        <h2>98%</h2>
-                        <span>Client Satisfaction</span>
+                        <h2>
+                            <span class="counter"
+                                  data-target="98">0</span>%
+                        </h2>
+
+                        <p>Client Satisfaction</p>
 
                     </div>
 
@@ -249,23 +522,22 @@ body.light-mode .dark-logo{
 
             </div>
 
-          <!-- RIGHT IMAGE -->
+            <!-- RIGHT IMAGE -->
 
-<div class="col-lg-6 hero-image-side"
-     data-aos="fade-left">
+            <div class="col-lg-6 text-center"
+                 data-aos="fade-left">
 
-    <div class="main-image-wrapper">
+                <div class="hero-image-wrapper">
 
-        <!-- MAIN IMAGE -->
+                    <!-- MAIN IMAGE -->
 
-        <img src="static/image/Alpha Crest.jpg"
-     class="main-hero-image"
-     alt="Hero Image"
-     style="width: 450px; height: 450px; object-fit: cover;">
+                    <img src="static/image/Alpha Crest.jpg"
+                         alt="Agency"
+                         class="hero-main-image">
 
-    </div>
+                  
 
-</div>
+                </div>
 
             </div>
 
@@ -274,6 +546,543 @@ body.light-mode .dark-logo{
     </div>
 
 </section>
+
+<!-- ================= STYLE ================= -->
+
+<style>
+
+/* ================= GOOGLE FONT ================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body{
+    font-family:'Inter',sans-serif;
+}
+
+/* ================= HERO ================= */
+
+.hero-premium{
+    position:relative;
+    overflow:hidden;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 0;
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(13,110,253,0.18),
+    transparent 30%),
+
+    radial-gradient(circle at bottom left,
+    rgba(0,191,255,0.10),
+    transparent 30%),
+
+    linear-gradient(135deg,#020617,#07152f,#0f172a);
+}
+
+/* ================= BLUR EFFECT ================= */
+
+.hero-blur{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:0;
+}
+
+.hero-blur-1{
+    width:350px;
+    height:350px;
+    background:#0d6efd55;
+    top:-120px;
+    right:-120px;
+}
+
+.hero-blur-2{
+    width:300px;
+    height:300px;
+    background:#00bfff55;
+    bottom:-100px;
+    left:-100px;
+}
+
+/* ================= CONTENT ================= */
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    color:#dbeafe;
+
+    font-size:14px;
+
+    margin-bottom:30px;
+
+    backdrop-filter:blur(10px);
+}
+
+.hero-badge i{
+    color:#38bdf8;
+}
+
+/* ================= TITLE ================= */
+
+.hero-title{
+    font-size:74px;
+    font-weight:800;
+    line-height:1.08;
+    color:white;
+    margin-bottom:25px;
+}
+
+.hero-title span{
+    background:linear-gradient(45deg,#0d6efd,#38bdf8);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    background-clip:text;
+    color:transparent;
+}
+
+/* ================= DESCRIPTION ================= */
+
+.hero-description{
+    color:#cbd5e1;
+    font-size:18px;
+    line-height:1.9;
+    max-width:620px;
+}
+
+/* ================= BUTTONS ================= */
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.hero-btn-primary{
+    background:linear-gradient(45deg,#0d6efd,#38bdf8);
+    color:white;
+    padding:16px 34px;
+    border-radius:60px;
+    text-decoration:none;
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    transition:0.4s ease;
+}
+
+.hero-btn-primary:hover{
+    transform:translateY(-5px);
+    color:white;
+
+    box-shadow:
+    0 15px 40px rgba(13,110,253,0.35);
+}
+
+.hero-btn-secondary{
+    border:1px solid rgba(255,255,255,0.15);
+
+    background:rgba(255,255,255,0.05);
+
+    color:white;
+
+    padding:16px 34px;
+
+    border-radius:60px;
+
+    text-decoration:none;
+
+    transition:0.4s ease;
+}
+
+.hero-btn-secondary:hover{
+    background:white;
+    color:#111827;
+}
+
+/* ================= STATS ================= */
+
+.hero-stats{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:55px;
+}
+
+.hero-stat-card{
+    background:rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    padding:28px 30px;
+
+    border-radius:24px;
+
+    min-width:180px;
+
+    backdrop-filter:blur(12px);
+
+    transition:0.4s ease;
+}
+
+.hero-stat-card:hover{
+    transform:translateY(-8px);
+
+    border-color:#38bdf8;
+}
+
+.hero-stat-card h2{
+    font-size:42px;
+    font-weight:800;
+    color:#38bdf8;
+    margin-bottom:8px;
+}
+
+.hero-stat-card p{
+    margin:0;
+    color:#cbd5e1;
+    font-size:15px;
+}
+
+/* ================= IMAGE ================= */
+
+.hero-image-wrapper{
+    position:relative;
+    display:inline-block;
+}
+
+/* MAIN IMAGE */
+
+.hero-main-image{
+    width:100%;
+    max-width:520px;
+    height:650px;
+
+    object-fit:cover;
+
+    border-radius:35px;
+
+    box-shadow:
+    0 0 50px rgba(13,110,253,0.25),
+    0 0 120px rgba(13,110,253,0.12);
+
+    animation:floatImage 5s ease-in-out infinite;
+}
+
+/* ================= FLOATING CARDS ================= */
+
+.floating-card{
+    position:absolute;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.10);
+
+    backdrop-filter:blur(10px);
+
+    padding:18px 20px;
+
+    border-radius:20px;
+
+    color:white;
+
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+.floating-card i{
+    width:55px;
+    height:55px;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(45deg,#0d6efd,#38bdf8);
+
+    font-size:20px;
+}
+
+.floating-card h6{
+    margin:0;
+    font-size:15px;
+    font-weight:700;
+}
+
+.floating-card span{
+    font-size:13px;
+    color:#cbd5e1;
+}
+
+/* CARD POSITIONS */
+
+.floating-card-1{
+    top:40px;
+    left:-60px;
+}
+
+.floating-card-2{
+    bottom:40px;
+    right:-50px;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:991px){
+
+    .hero-premium{
+        text-align:center;
+        padding:140px 0 80px;
+    }
+
+    .hero-title{
+        font-size:52px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-stats{
+        justify-content:center;
+    }
+
+    .floating-card{
+        display:none;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .hero-title{
+        font-size:38px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-secondary{
+        width:100%;
+        justify-content:center;
+    }
+
+    .hero-stat-card{
+        width:100%;
+    }
+
+    .hero-main-image{
+        height:420px;
+    }
+
+}
+
+</style>
+
+<!-- ================= COUNTER ANIMATION ================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counters = document.querySelectorAll(".counter");
+
+    let started = false;
+
+    function startCounterAnimation(){
+
+        if(started) return;
+
+        started = true;
+
+        counters.forEach(counter => {
+
+            const target = +counter.getAttribute("data-target");
+
+            let count = 0;
+
+            const speed = target / 120;
+
+            function updateCounter(){
+
+                count += speed;
+
+                if(count < target){
+
+                    counter.innerText = Math.ceil(count);
+
+                    requestAnimationFrame(updateCounter);
+
+                }else{
+
+                    counter.innerText = target;
+
+                }
+
+            }
+
+            updateCounter();
+
+        });
+
+    }
+
+    const statsSection = document.querySelector(".hero-stats");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                startCounterAnimation();
+
+            }
+
+        });
+
+    }, {
+        threshold:0.5
+    });
+
+    observer.observe(statsSection);
+
+});
+
+</script>
+
+<!-- ================= COUNTER ANIMATION ================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counters = document.querySelectorAll(".counter");
+
+    let started = false;
+
+    function startCounterAnimation(){
+
+        if(started) return;
+
+        started = true;
+
+        counters.forEach(counter => {
+
+            const target = +counter.getAttribute("data-target");
+
+            let count = 0;
+
+            const speed = target / 120;
+
+            function updateCounter(){
+
+                count += speed;
+
+                if(count < target){
+
+                    counter.innerText = Math.ceil(count);
+
+                    requestAnimationFrame(updateCounter);
+
+                } else {
+
+                    counter.innerText = target;
+
+                }
+
+            }
+
+            updateCounter();
+
+        });
+
+    }
+
+    const statsSection = document.querySelector(".hero-stats");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                startCounterAnimation();
+
+            }
+
+        });
+
+    }, {
+        threshold:0.5
+    });
+
+    observer.observe(statsSection);
+
+});
+
+</script>
 <style>
   /* ================= HERO IMAGE FIX ================= */
 
@@ -644,6 +1453,224 @@ body.light-mode .dark-logo{
 
 }
 </style>
+<STYLE>
+    /* ================= FIX HERO TOP SPACE ================= */
+
+.hero-premium{
+    padding:80px 0 40px; /* TOP SPACE REDUCED */
+}
+
+/* REMOVE EXTRA IMAGE TOP GAP */
+
+.hero-image-wrapper{
+    margin-top:0;
+    padding-top:0;
+}
+
+/* IMAGE PROFESSIONAL EFFECT */
+
+.hero-main-image{
+    width:100%;
+    max-width:520px;
+    height:620px;
+    object-fit:cover;
+
+    border-radius:35px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.35),
+    0 0 80px rgba(13,110,253,0.15);
+
+    animation:floatImage 5s ease-in-out infinite;
+}
+
+/* ================= LIGHT MODE SUPPORT ================= */
+
+body.light-mode .hero-premium{
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(13,110,253,0.10),
+    transparent 30%),
+
+    radial-gradient(circle at bottom left,
+    rgba(0,191,255,0.08),
+    transparent 30%),
+
+    linear-gradient(to right,#f8fafc,#eef4ff,#ffffff);
+
+}
+
+body.light-mode .hero-title{
+    color:#0f172a;
+}
+
+body.light-mode .hero-description{
+    color:#475569;
+}
+
+body.light-mode .hero-badge{
+    background:white;
+    color:#0f172a;
+    border:1px solid #e2e8f0;
+}
+
+body.light-mode .hero-btn-secondary{
+    background:white;
+    color:#111827;
+    border:1px solid #dbeafe;
+}
+
+body.light-mode .hero-btn-secondary:hover{
+    background:#0d6efd;
+    color:white;
+}
+
+body.light-mode .hero-stat-card{
+    background:white;
+    border:1px solid #e2e8f0;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.05);
+}
+
+body.light-mode .hero-stat-card p{
+    color:#475569;
+}
+
+body.light-mode .floating-card{
+    background:white;
+    color:#0f172a;
+    border:1px solid #e2e8f0;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.light-mode .floating-card span{
+    color:#475569;
+}
+
+/* ================= INTERESTING EFFECTS ================= */
+
+/* GLOW BORDER */
+
+.hero-main-image::after{
+    content:'';
+    position:absolute;
+    inset:-2px;
+
+    border-radius:35px;
+
+    background:
+    linear-gradient(45deg,
+    #0d6efd,
+    transparent,
+    #38bdf8);
+
+    z-index:-1;
+
+    filter:blur(20px);
+
+    opacity:0.5;
+}
+
+/* HERO TITLE ANIMATION */
+
+.hero-title span{
+    background-size:200% auto;
+
+    animation:textGradient 4s linear infinite;
+}
+
+@keyframes textGradient{
+
+    0%{
+        background-position:0% center;
+    }
+
+    100%{
+        background-position:200% center;
+    }
+
+}
+
+/* BUTTON SHINE EFFECT */
+
+.hero-btn-primary{
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-btn-primary::before{
+
+    content:'';
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+
+    transition:0.6s;
+}
+
+.hero-btn-primary:hover::before{
+    left:100%;
+}
+
+/* FLOATING IMAGE EFFECT */
+
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* MOBILE FIX */
+
+@media(max-width:991px){
+
+    .hero-premium{
+        padding:120px 0 60px;
+    }
+
+    .hero-image-wrapper{
+        margin-top:20px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .hero-main-image{
+        height:420px;
+    }
+
+}
+</STYLE>
 
 <!-- ================= ABOUT SECTION ================= -->
 
@@ -958,108 +1985,494 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </script>
 
-<!-- ================= CLIENT LOGOS ================= -->
- <style>
-  /* ================= CLIENTS ================= */
+<!-- ================= CLIENT SECTION ================= -->
+<style>
+    /* ================= DARK MODE ================= */
+
+.clients-section{
+    position:relative;
+    overflow:hidden;
+    padding:110px 0;
+
+    background:
+    linear-gradient(135deg,#020617,#07152f,#0f172a);
+}
+
+/* ================= TITLE ================= */
+
+.client-mini-title{
+
+    display:inline-block;
+
+    padding:10px 24px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    color:#38bdf8;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.client-main-title{
+
+    font-size:60px;
+
+    font-weight:800;
+
+    color:white;
+
+    margin-bottom:15px;
+
+    letter-spacing:-2px;
+}
+
+.client-main-title span{
+
+    background:
+    linear-gradient(45deg,#0d6efd,#38bdf8);
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    color:transparent;
+}
+
+.client-description{
+
+    color:#94a3b8;
+
+    max-width:650px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+    font-size:17px;
+}
+
+/* ================= LOGO SLIDER ================= */
 
 .logo-slider{
-    overflow:hidden;
+
     position:relative;
+
+    overflow:hidden;
+
     width:100%;
-    margin-top:40px;
+
+    margin-top:70px;
+
+    padding:15px 0;
 }
+
+/* SIDE FADE */
+
+.logo-slider::before,
+.logo-slider::after{
+
+    content:'';
+
+    position:absolute;
+
+    top:0;
+
+    width:120px;
+    height:100%;
+
+    z-index:2;
+}
+
+.logo-slider::before{
+
+    left:0;
+
+    background:
+    linear-gradient(to right,
+    #07152f,
+    transparent);
+}
+
+.logo-slider::after{
+
+    right:0;
+
+    background:
+    linear-gradient(to left,
+    #07152f,
+    transparent);
+}
+
+/* ================= TRACK ================= */
 
 .logo-track{
+
     display:flex;
     align-items:center;
-    gap:60px;
+
+    gap:30px;
+
     width:max-content;
-    animation:scrollLogo 20s linear infinite;
+
+    animation:scrollLogo 28s linear infinite;
 }
 
-.logo-track img{
+/* ================= CARD ================= */
+
+.logo-card{
+
     width:200px;
     height:200px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    border-radius:24px;
+
+    background:#ffffff;
+
+    transition:0.4s ease;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.18);
+}
+
+/* ================= IMAGE ================= */
+
+.logo-card img{
+
+    width:100%;
+    height:100%;
+
     object-fit:contain;
-    filter: grayscale(100%);
-    opacity:0.8;
-    transition:0.3s;
+
+    transition:0.4s ease;
 }
 
-.logo-track img:hover{
-    filter:grayscale(0%);
-    opacity:1;
-    transform:scale(1.05);
+/* ================= HOVER ================= */
+
+.logo-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.05);
+
+    box-shadow:
+    0 20px 40px rgba(13,110,253,0.25);
 }
 
-/* Auto Scroll Animation */
+.logo-card:hover img{
+
+    transform:scale(1.08);
+}
+
+/* ================= AUTO SCROLL ================= */
 
 @keyframes scrollLogo{
+
     from{
         transform:translateX(0);
     }
+
     to{
         transform:translateX(-50%);
     }
-}
- </style>
 
-<section class="clients section-padding" id="clients">
+}
+
+/* ================= PAUSE ON HOVER ================= */
+
+.logo-slider:hover .logo-track{
+    animation-play-state:paused;
+}
+
+/* ================================================= */
+/* ================= LIGHT MODE ==================== */
+/* ================================================= */
+
+body.light-mode .clients-section{
+
+    background:
+    linear-gradient(180deg,
+    #f8fafc,
+    #eef4ff,
+    #ffffff);
+}
+
+body.light-mode .client-main-title{
+    color:#0f172a;
+}
+
+body.light-mode .client-description{
+    color:#475569;
+}
+
+body.light-mode .client-mini-title{
+
+    background:#ffffff;
+
+    border:1px solid #dbeafe;
+
+    color:#0d6efd;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+body.light-mode .logo-slider::before{
+
+    background:
+    linear-gradient(to right,
+    #ffffff,
+    transparent);
+}
+
+body.light-mode .logo-slider::after{
+
+    background:
+    linear-gradient(to left,
+    #ffffff,
+    transparent);
+}
+
+body.light-mode .logo-card{
+
+    background:#ffffff;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:991px){
+
+    .clients-section{
+        padding:90px 0;
+    }
+
+    .client-main-title{
+        font-size:46px;
+    }
+
+    .logo-card{
+
+        width:180px;
+        height:120px;
+    }
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:576px){
+
+    .clients-section{
+        padding:80px 0;
+    }
+
+    .client-main-title{
+        font-size:34px;
+    }
+
+    .client-description{
+        font-size:15px;
+    }
+
+    .logo-track{
+        gap:18px;
+    }
+
+    .logo-card{
+
+        width:150px;
+        height:150px;
+
+        padding:12px;
+
+        border-radius:18px;
+    }
+
+    .logo-slider::before,
+    .logo-slider::after{
+
+        width:60px;
+    }
+
+}
+</style>
+
+<section class="clients-section section-padding"
+         id="clients">
 
     <div class="container">
 
-        <div class="section-title">
-            <h2>
+        <!-- SECTION TITLE -->
+
+        <div class="section-title text-center mb-5">
+
+            <span class="client-mini-title">
+                Trusted By Brands
+            </span>
+
+            <h2 class="client-main-title">
+
                 Our <span>Clients</span>
+
             </h2>
+
+            <p class="client-description">
+
+                We proudly collaborate with innovative brands
+                across multiple industries.
+
+            </p>
+
         </div>
+
+        <!-- LOGO SLIDER -->
 
         <div class="logo-slider">
 
             <div class="logo-track">
 
-                <!-- Logos -->
-                <img src="static/clientlogo/Ag.jpg" alt="Ag Logo">
-                <img src="static/clientlogo/Ambur.jpg" alt="Ambur Logo">
-                <img src="static/clientlogo/Aminova.png" alt="Aminova Logo">
-                <img src="static/clientlogo/Dhaliwals.jpg" alt="Dhaliwals Logo">
-                <img src="static/clientlogo/Dr_s Bio.jpg" alt="Dr_s Logo">
-                <!---->
-                 <img src="static/clientlogo/Elite.jpg" alt="Elite Logo">
-                  <img src="static/clientlogo/First nest.jpg" alt="First Logo">
-                   <img src="static/clientlogo/Halofit.jpg" alt="Halofit Logo">
-                    <img src="static/clientlogo/Hub.jpg" alt="Hub Logo">
-                     <img src="static/clientlogo/Janani Motorx.jpg" alt="Janani Motorx Logo">
-                      <img src="static/clientlogo/Manjal.jpg" alt="Manjal Logo">
-                       <img src="static/clientlogo/MJ.jpg" alt="MJ Logo">
-                        <img src="static/clientlogo/MPM.jpg" alt="MPM Logo">
-                         <img src="static/clientlogo/Oracle.jpeg" alt="Oracle Logo">
-                          <img src="static/clientlogo/Peak Food.jpg" alt="Peak Logo">
-                             <img src="static/clientlogo/Shanas.jpg" alt="Shanas Logo">
-                              <img src="static/clientlogo/Tandour.PNG" alt="Tandour Logo">
+                <!-- LOGOS -->
 
+                <div class="logo-card">
+                    <img src="static/clientlogo/Ag.jpg"
+                         alt="AG Logo">
+                </div>
 
-                <!-- Duplicate for smooth scroll -->
-                  <!-- Logos -->
-                <img src="static/clientlogo/Ag.jpg" alt="Ag Logo">
-                <img src="static/clientlogo/Ambur.jpg" alt="Ambur Logo">
-                <img src="static/clientlogo/Aminova.png" alt="Aminova Logo">
-                <img src="static/clientlogo/Dhaliwals.jpg" alt="Dhaliwals Logo">
-                <img src="static/clientlogo/Dr_s Bio.jpg" alt="Dr_s Logo">
-                <!---->
-                 <img src="static/clientlogo/Elite.jpg" alt="Elite Logo">
-                  <img src="static/clientlogo/First nest.jpg" alt="First Logo">
-                   <img src="static/clientlogo/Halofit.jpg" alt="Halofit Logo">
-                    <img src="static/clientlogo/Hub.jpg" alt="Hub Logo">
-                     <img src="static/clientlogo/Janani Motorx.jpg" alt="Janani Motorx Logo">
-                      <img src="static/clientlogo/Manjal.jpg" alt="Manjal Logo">
-                       <img src="static/clientlogo/MJ.jpg" alt="MJ Logo">
-                        <img src="static/clientlogo/MPM.jpg" alt="MPM Logo">
-                         <img src="static/clientlogo/Oracle.jpeg" alt="Oracle Logo">
-                          <img src="static/clientlogo/Peak Food.jpg" alt="Peak Logo">
-                             <img src="static/clientlogo/Shanas.jpg" alt="Shanas Logo">
-                              <img src="static/clientlogo/Tandour.PNG" alt="Tandour Logo">
-              
+                <div class="logo-card">
+                    <img src="static/clientlogo/Ambur.jpg"
+                         alt="Ambur Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Aminova.png"
+                         alt="Aminova Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Dhaliwals.jpg"
+                         alt="Dhaliwals Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Dr_s Bio.jpg"
+                         alt="Dr Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Elite.jpg"
+                         alt="Elite Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/First nest.jpg"
+                         alt="First Nest Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Halofit.jpg"
+                         alt="Halofit Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Hub.jpg"
+                         alt="Hub Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Janani Motorx.jpg"
+                         alt="Janani Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Manjal.jpg"
+                         alt="Manjal Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/MJ.jpg"
+                         alt="MJ Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/MPM.jpg"
+                         alt="MPM Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Oracle.jpeg"
+                         alt="Oracle Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Peak Food.jpg"
+                         alt="Peak Food Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Shanas.jpg"
+                         alt="Shanas Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Tandour.PNG"
+                         alt="Tandour Logo">
+                </div>
+
+                <!-- DUPLICATE FOR SMOOTH LOOP -->
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Ag.jpg"
+                         alt="AG Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Ambur.jpg"
+                         alt="Ambur Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Aminova.png"
+                         alt="Aminova Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Dhaliwals.jpg"
+                         alt="Dhaliwals Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Dr_s Bio.jpg"
+                         alt="Dr Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/Elite.jpg"
+                         alt="Elite Logo">
+                </div>
+
+                <div class="logo-card">
+                    <img src="static/clientlogo/First nest.jpg"
+                         alt="First Nest Logo">
+                </div>
 
             </div>
 
@@ -1068,6 +2481,9 @@ document.addEventListener("DOMContentLoaded", function(){
     </div>
 
 </section>
+
+
+
 
 <!-- ================= SERVICES ================= -->
 
@@ -1442,645 +2858,479 @@ body.light-mode .tag{
 
 </style>
 
-
-<!-- ================= CLIENT VIDEOS ================= -->
-
-<style>
-
-/* ================= SECTION ================= */
-
-.client-videos{
-    background:#0f172a;
-    overflow:hidden;
-    position:relative;
-}
-
-.video-subtitle{
-    color:#94a3b8;
-    margin-top:10px;
-    font-size:15px;
-}
-
-/* ================= SCROLL CONTAINER ================= */
-
-.video-scroll-container{
-    position:relative;
-    width:100%;
-}
-
-/* ================= SCROLL WRAPPER ================= */
-
-.video-scroll-wrapper{
-    overflow-x:auto;
-    scroll-behavior:smooth;
-    scrollbar-width:none;
-    padding:20px 70px;
-}
-
-.video-scroll-wrapper::-webkit-scrollbar{
-    display:none;
-}
-
-/* ================= VIDEO TRACK ================= */
-
-.video-track{
-    display:flex;
-    gap:24px;
-    width:max-content;
-}
-
-/* ================= VIDEO CARD ================= */
-
-.video-card{
-    width:260px;
-    height:520px;
-    border-radius:28px;
-    overflow:hidden;
-    position:relative;
-    flex-shrink:0;
-    background:#111827;
-    transition:0.4s ease;
-    cursor:pointer;
-}
-
-.video-card:hover{
-    transform:translateY(-10px) scale(1.03);
-    box-shadow:0 25px 45px rgba(0,0,0,0.4);
-}
-
-/* ================= VIDEO ================= */
-
-.client-video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    background:#000;
-}
-
-/* ================= OVERLAY CONTENT ================= */
-
-.video-content{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    padding:22px;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,0.95),
-        rgba(0,0,0,0)
-    );
-}
-
-.video-content h5{
-    color:#fff;
-    font-size:19px;
-    font-weight:700;
-    margin-bottom:5px;
-}
-
-.video-content p{
-    color:#d1d5db;
-    font-size:13px;
-    margin-bottom:14px;
-}
-
-/* ================= PLAY BUTTON ================= */
-
-.play-btn{
-    border:none;
-    background:#ffffff;
-    color:#111827;
-    padding:10px 18px;
-    border-radius:50px;
-    font-size:14px;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.play-btn:hover{
-    transform:scale(1.08);
-}
-
-/* ================= SIDE BUTTONS ================= */
-
-.video-scroll-btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:50%;
-    background:rgba(255,255,255,0.92);
-    color:#111827;
-    font-size:18px;
-    cursor:pointer;
-    z-index:100;
-    transition:0.3s;
-    backdrop-filter:blur(10px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
-}
-
-.video-scroll-btn:hover{
-    transform:translateY(-50%) scale(1.1);
-}
-
-.video-left-btn{
-    left:10px;
-}
-
-.video-right-btn{
-    right:10px;
-}
-
-/* ================= VIDEO MODAL ================= */
-
-.video-modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.92);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-    padding:20px;
-}
-
-.video-modal video{
-    width:100%;
-    max-width:420px;
-    max-height:90vh;
-    border-radius:20px;
-    background:#000;
-    outline:none;
-}
-
-/* ================= CLOSE BUTTON ================= */
-
-.close-video{
-    position:absolute;
-    top:25px;
-    right:35px;
-    color:#fff;
-    font-size:45px;
-    cursor:pointer;
-    z-index:10000;
-}
-
-/* ================= LIGHT MODE ================= */
-
-body.light-mode .client-videos{
-    background:#f8fafc;
-}
-
-body.light-mode .video-content h5{
-    color:#fff;
-}
-
-body.light-mode .video-scroll-btn{
-    background:#111827;
-    color:#fff;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-    .video-scroll-wrapper{
-        padding:15px 55px;
-    }
-
-    .video-card{
-        width:220px;
-        height:430px;
-    }
-
-    .video-scroll-btn{
-        width:42px;
-        height:42px;
-        font-size:14px;
-    }
-
-    .close-video{
-        top:15px;
-        right:20px;
-        font-size:35px;
-    }
-
-}
-
-</style>
-
-<section class="client-videos section-padding" id="client-videos">
-
+<!-- ================= VIDEO ================= -->
+ <section class="client-videos section-padding" id="client-videos">
     <div class="container">
 
         <div class="section-title text-center mb-5">
-
-            <h2>
-                Our <span>Works</span>
-            </h2>
-
+            <span class="works-badge">Creative Portfolio</span>
+            <h2 class="works-title">Our <span>Works</span></h2>
             <p class="video-subtitle">
-                Client campaigns & creative video productions
+                High-quality cinematic reels, product promotions, branding campaigns & social media creatives.
             </p>
-
         </div>
 
-        <!-- ================= VIDEO SCROLLER ================= -->
-
         <div class="video-scroll-container">
-
-            <!-- LEFT BUTTON -->
-
-            <button class="video-scroll-btn video-left-btn"
-                onclick="scrollVideos(-1)">
-
+            <button class="video-scroll-btn video-left-btn" onclick="scrollVideos(-1)">
                 <i class="fas fa-chevron-left"></i>
-
             </button>
 
-            <!-- VIDEO WRAPPER -->
-
             <div class="video-scroll-wrapper" id="videoSlider">
-
                 <div class="video-track">
-
-                    <!-- VIDEO 1 -->
-
                     <div class="video-card">
-
-                        <video class="client-video" muted>
-
+                        <video class="client-video" muted loop playsinline>
                             <source src="static/video/Anti-Dandruff Shampoo.mp4" type="video/mp4">
-
                         </video>
-
+                        <div class="video-overlay"></div>
                         <div class="video-content">
-
+                            <span class="video-tag">Product Ad</span>
                             <h5>Anti-Dandruff Shampoo</h5>
-
-                            <p>Product Advertisement</p>
-
-                            <button class="play-btn"
-                                onclick="openVideo('static/video/Anti-Dandruff Shampoo.mp4')">
-
-                                <i class="fas fa-play"></i> Watch
-
+                            <p>Premium Haircare Campaign</p>
+                            <button class="play-btn" onclick="openVideo('static/video/Anti-Dandruff Shampoo.mp4')">
+                                <i class="fas fa-play"></i>
                             </button>
-
                         </div>
-
                     </div>
 
-                    <!-- VIDEO 2 -->
-
                     <div class="video-card">
-
-                        <video class="client-video" muted>
-
+                        <video class="client-video" muted loop playsinline>
                             <source src="static/video/Grill Chicken.mp4" type="video/mp4">
-
                         </video>
-
+                        <div class="video-overlay"></div>
                         <div class="video-content">
-
+                            <span class="video-tag">Food Reel</span>
                             <h5>Grill Chicken</h5>
-
-                            <p>Hotel Marketing Reel</p>
-
-                            <button class="play-btn"
-                                onclick="openVideo('static/video/Grill Chicken.mp4')">
-
-                                <i class="fas fa-play"></i> Watch
-
+                            <p>Restaurant Marketing Reel</p>
+                            <button class="play-btn" onclick="openVideo('static/video/Grill Chicken.mp4')">
+                                <i class="fas fa-play"></i>
                             </button>
-
                         </div>
-
                     </div>
 
-                    <!-- VIDEO 3 -->
-
                     <div class="video-card">
-
-                        <video class="client-video" muted>
-
+                        <video class="client-video" muted loop playsinline>
                             <source src="static/video/HydraFacial Treatment.mp4" type="video/mp4">
-
                         </video>
-
+                        <div class="video-overlay"></div>
                         <div class="video-content">
-
-                            <h5>HydraFacial Treatment</h5>
-
-                            <p>Treatment Promotion</p>
-
-                            <button class="play-btn"
-                                onclick="openVideo('static/video/HydraFacial Treatment.mp4')">
-
-                                <i class="fas fa-play"></i> Watch
-
+                            <span class="video-tag">Beauty</span>
+                            <h5>HydraFacial</h5>
+                            <p>Skin Treatment Promotion</p>
+                            <button class="play-btn" onclick="openVideo('static/video/HydraFacial Treatment.mp4')">
+                                <i class="fas fa-play"></i>
                             </button>
-
                         </div>
-
                     </div>
 
-                    <!-- VIDEO 4 -->
-
                     <div class="video-card">
-
-                        <video class="client-video" muted>
-
+                        <video class="client-video" muted loop playsinline>
                             <source src="static/video/Pondicherry(1).mp4" type="video/mp4">
-
                         </video>
-
+                        <div class="video-overlay"></div>
                         <div class="video-content">
-
+                            <span class="video-tag">Travel</span>
                             <h5>Pondicherry</h5>
-
-                            <p>Travel Promotion</p>
-
-                            <button class="play-btn"
-                                onclick="openVideo('static/video/Pondicherry(1).mp4')">
-
-                                <i class="fas fa-play"></i> Watch
-
+                            <p>Tourism Promotion Reel</p>
+                            <button class="play-btn" onclick="openVideo('static/video/Pondicherry(1).mp4')">
+                                <i class="fas fa-play"></i>
                             </button>
-
                         </div>
-
                     </div>
 
-                    <!-- VIDEO 5 -->
-
                     <div class="video-card">
-
-                        <video class="client-video" muted>
-
+                        <video class="client-video" muted loop playsinline>
                             <source src="static/video/PTS screw.mp4" type="video/mp4">
-
                         </video>
-
+                        <div class="video-overlay"></div>
                         <div class="video-content">
-
+                            <span class="video-tag">Industry</span>
                             <h5>PTS Screw</h5>
-
-                            <p>Industrial Promotion</p>
-
-                            <button class="play-btn"
-                                onclick="openVideo('static/video/PTS screw.mp4')">
-
-                                <i class="fas fa-play"></i> Watch
-
+                            <p>Industrial Brand Promotion</p>
+                            <button class="play-btn" onclick="openVideo('static/video/PTS screw.mp4')">
+                                <i class="fas fa-play"></i>
                             </button>
-
                         </div>
-
                     </div>
 
-                    <!-- VIDEO 6 -->
-
                     <div class="video-card">
-
-                        <video class="client-video" muted>
-
+                        <video class="client-video" muted loop playsinline>
                             <source src="static/video/roatu kadai part 2.mp4" type="video/mp4">
-
                         </video>
-
+                        <div class="video-overlay"></div>
                         <div class="video-content">
-
+                            <span class="video-tag">Food Reel</span>
                             <h5>Roatu Kadai</h5>
-
-                            <p>Food Marketing Reel</p>
-
-                            <button class="play-btn"
-                                onclick="openVideo('static/video/roatu kadai part 2.mp4')">
-
-                                <i class="fas fa-play"></i> Watch
-
+                            <p>Street Food Promotion</p>
+                            <button class="play-btn" onclick="openVideo('static/video/roatu kadai part 2.mp4')">
+                                <i class="fas fa-play"></i>
                             </button>
-
                         </div>
-
                     </div>
 
-                    <!-- VIDEO 7 -->
-
                     <div class="video-card">
-
-                        <video class="client-video" muted>
-
-                            <source src="static/video/ss m1(patch).mp4" type="video/mp4">
-
-                        </video>
-
-                        <div class="video-content">
-
-                            <h5>SS M1</h5>
-
-                            <p>Creative Promotion</p>
-
-                            <button class="play-btn"
-                                onclick="openVideo('static/video/ss m1(patch).mp4')">
-
-                                <i class="fas fa-play"></i> Watch
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <!-- VIDEO 8 -->
-
-                    <div class="video-card">
-
-                        <video class="client-video" muted>
-
+                        <video class="client-video" muted loop playsinline>
                             <source src="static/video/PART-2.mp4" type="video/mp4">
-
                         </video>
-
+                        <div class="video-overlay"></div>
                         <div class="video-content">
-
-                            <h5>Part 2</h5>
-
-                            <p>Social Media Reel</p>
-
-                            <button class="play-btn"
-                                onclick="openVideo('static/video/PART-2.mp4')">
-
-                                <i class="fas fa-play"></i> Watch
-
+                            <span class="video-tag">Product Ad</span>
+                            <h5>PART-2</h5>
+                            <p>PART-2</p>
+                            <button class="play-btn" onclick="openVideo('static/video/Anti-Dandruff Shampoo.mp4')">
+                                <i class="fas fa-play"></i>
                             </button>
-
                         </div>
+                    </div>
 
+                    <div class="video-card">
+                        <video class="client-video" muted loop playsinline>
+                            <source src="static/video/ss m1(patch).mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay"></div>
+                        <div class="video-content">
+                            <span class="video-tag">ss m1</span>
+                            <h5>ss m1</h5>
+                            <p>ss m1</p>
+                            <button class="play-btn" onclick="openVideo('static/video/Grill Chicken.mp4')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
                     </div>
 
                 </div>
-
             </div>
 
-            <!-- RIGHT BUTTON -->
-
-            <button class="video-scroll-btn video-right-btn"
-                onclick="scrollVideos(1)">
-
+            <button class="video-scroll-btn video-right-btn" onclick="scrollVideos(1)">
                 <i class="fas fa-chevron-right"></i>
-
             </button>
-
         </div>
-
     </div>
-
 </section>
 
-<!-- ================= VIDEO POPUP ================= -->
-
 <div class="video-modal" id="videoModal">
-
-    <span class="close-video" onclick="closeVideo()">
-        &times;
-    </span>
-
-    <video controls id="popupVideo" autoplay></video>
-
+    <span class="close-video" onclick="closeVideo()">&times;</span>
+    <video controls id="popupVideo"></video>
 </div>
 
-<!-- ================= JAVASCRIPT ================= -->
+<style>
+.client-videos {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0;
+    background: radial-gradient(circle at top right, rgba(13,110,253,0.15), transparent 25%), linear-gradient(135deg,#020617,#07152f,#0f172a);
+}
+
+.works-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 24px;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #38bdf8;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.works-title {
+    font-size: 60px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 18px;
+}
+
+.works-title span {
+    background: linear-gradient(45deg,#0d6efd,#38bdf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.video-subtitle {
+    color: #94a3b8;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: auto;
+}
+
+.video-scroll-container {
+    position: relative;
+    margin-top: 70px;
+}
+
+.video-scroll-wrapper {
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    padding: 15px 70px;
+}
+
+.video-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.video-track {
+    display: flex;
+    gap: 28px;
+    width: max-content;
+}
+
+.video-card {
+    position: relative;
+    width: 280px;
+    height: 540px;
+    border-radius: 30px;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    background: #111827;
+    transition: 0.5s ease;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+.video-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(13,110,253,0.25);
+}
+
+.client-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.video-card:hover .client-video {
+    transform: scale(1.05);
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.05));
+}
+
+.video-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    z-index: 2;
+}
+
+.video-tag {
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+
+.video-content h5 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.video-content p {
+    color: #d1d5db;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.play-btn {
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #111827;
+    font-size: 16px;
+    transition: 0.4s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.12);
+    background: #0d6efd;
+    color: #fff;
+}
+
+.video-scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    color: #111827;
+    font-size: 18px;
+    z-index: 999;
+    cursor: pointer;
+    transition: 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.video-scroll-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    background: #0d6efd;
+    color: #fff;
+}
+
+.video-left-btn { left: 10px; }
+.video-right-btn { right: 10px; }
+
+.video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.video-modal video {
+    width: 100%;
+    max-width: 430px;
+    max-height: 90vh;
+    border-radius: 22px;
+    background: #000;
+}
+
+.close-video {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 45px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Light Mode Styling */
+body.light-mode .client-videos { background: linear-gradient(180deg, #f8fafc, #eef4ff, #ffffff); }
+body.light-mode .works-title { color: #0f172a; }
+body.light-mode .video-subtitle { color: #475569; }
+body.light-mode .works-badge { background: #fff; border: 1px solid #dbeafe; color: #0d6efd; }
+body.light-mode .video-card { background: #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+
+/* Responsive adjustments */
+@media(max-width:991px){
+    .works-title { font-size: 44px; }
+    .video-card { width: 240px; height: 470px; }
+}
+
+@media(max-width:576px){
+    .client-videos { padding: 80px 0; }
+    .works-title { font-size: 34px; }
+    .video-subtitle { font-size: 15px; }
+    .video-scroll-wrapper { padding: 10px 45px; }
+    .video-track { gap: 18px; }
+    .video-card { width: 200px; height: 390px; border-radius: 24px; }
+    .video-content { padding: 18px; }
+    .video-content h5 { font-size: 18px; }
+    .video-scroll-btn { width: 42px; height: 42px; font-size: 14px; }
+    .close-video { top: 15px; right: 20px; font-size: 35px; }
+}
+</style>
 
 <script>
+let autoScroll;
+let slider;
 
-/* ================= VIDEO POPUP ================= */
+document.addEventListener("DOMContentLoaded", function() {
+    slider = document.getElementById("videoSlider");
 
-function openVideo(videoSrc){
+    // Play all track previews
+    document.querySelectorAll(".client-video").forEach(video => {
+        video.play().catch(err => console.log("Autoplay blocked/waiting for user interaction"));
+    });
 
-    const modal = document.getElementById("videoModal");
-
-    const video = document.getElementById("popupVideo");
-
-    video.src = videoSrc;
-
-    modal.style.display = "flex";
-
-    video.muted = false;
-
-    video.volume = 1;
-
-    video.play();
-
-}
-
-/* ================= CLOSE VIDEO ================= */
-
-function closeVideo(){
-
-    const modal = document.getElementById("videoModal");
-
-    const video = document.getElementById("popupVideo");
-
-    video.pause();
-
-    video.currentTime = 0;
-
-    modal.style.display = "none";
-
-}
-
-/* ================= CLOSE OUTSIDE ================= */
-
-window.onclick = function(e){
-
-    const modal = document.getElementById("videoModal");
-
-    if(e.target == modal){
-
-        closeVideo();
-
-    }
-
-}
-
-/* ================= VIDEO SCROLL ================= */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const videoSlider = document.getElementById("videoSlider");
-
-    // BUTTON SCROLL
-
-    window.scrollVideos = function(direction){
-
-        const scrollAmount = 320;
-
-        videoSlider.scrollBy({
-
-            left: direction * scrollAmount,
-
-            behavior: "smooth"
-
-        });
-
-    };
-
-    // AUTO SCROLL
-
-    let autoScroll = setInterval(() => {
-
-        videoSlider.scrollLeft += 1;
-
-        // RESET LOOP
-
-        if(
-            videoSlider.scrollLeft + videoSlider.clientWidth
-            >= videoSlider.scrollWidth
-        ){
-
-            videoSlider.scrollLeft = 0;
-
+    // Handle Infinite loop mechanics on scroll
+    slider.addEventListener('scroll', () => {
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
+            slider.scrollLeft = 5; 
+        } else if (slider.scrollLeft <= 0) {
+            slider.scrollLeft = slider.scrollWidth - slider.clientWidth - 5;
         }
-
-    }, 15);
-
-    // PAUSE ON HOVER
-
-    videoSlider.addEventListener("mouseenter", () => {
-
-        clearInterval(autoScroll);
-
     });
 
-    // RESUME
+    // Start Auto Scroll
+    startAutoScroll();
 
-    videoSlider.addEventListener("mouseleave", () => {
-
-        autoScroll = setInterval(() => {
-
-            videoSlider.scrollLeft += 1;
-
-            if(
-                videoSlider.scrollLeft + videoSlider.clientWidth
-                >= videoSlider.scrollWidth
-            ){
-
-                videoSlider.scrollLeft = 0;
-
-            }
-
-        }, 15);
-
-    });
-
+    // Pause on Hover
+    slider.addEventListener("mouseenter", stopAutoScroll);
+    slider.addEventListener("mouseleave", startAutoScroll);
 });
 
+/* ================= MANUAL NAVIGATION ================= */
+function scrollVideos(direction) {
+    if (!slider) return;
+    
+    // Temporarily halt auto scroll to prevent stuttering
+    stopAutoScroll();
+    
+    const cardWidth = 308; // Card space width (280 width + 28 gap)
+    slider.scrollBy({
+        left: direction * cardWidth,
+        behavior: "smooth"
+    });
+
+    // Restart autoscroll safely after transition completes
+    setTimeout(() => {
+        if (!slider.matches(':hover')) { 
+            startAutoScroll();
+        }
+    }, 600);
+}
+
+function startAutoScroll() {
+    if (autoScroll) clearInterval(autoScroll);
+    autoScroll = setInterval(() => {
+        if (slider) slider.scrollLeft += 1;
+    }, 15);
+}
+
+function stopAutoScroll() {
+    clearInterval(autoScroll);
+}
+
+/* ================= VIDEO MODAL POPUP ================= */
+function openVideo(videoSrc) {
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("popupVideo");
+    video.src = videoSrc;
+    modal.style.display = "flex";
+    video.play();
+}
+
+function closeVideo() {
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("popupVideo");
+    video.pause();
+    video.currentTime = 0;
+    modal.style.display = "none";
+}
+
+// Global click monitoring to close modal outside bounds
+window.addEventListener("click", function(e) {
+    const modal = document.getElementById("videoModal");
+    if (e.target === modal) {
+        closeVideo();
+    }
+});
 </script>
+
 
 <!-- ================= CONTACT ================= -->
 
