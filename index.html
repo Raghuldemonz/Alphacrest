@@ -22,6 +22,325 @@
 </head>
 
 <body>
+<!-- =========================
+        MODERN WEBSITE LOADER
+========================= -->
+<div id="siteLoader">
+
+    <!-- BACKGROUND GLOW -->
+    <div class="loader-bg-glow glow1"></div>
+    <div class="loader-bg-glow glow2"></div>
+
+    <div class="modern-loader">
+
+        <!-- DARK MODE LOGO -->
+        <img src="static/image/AC 1.png"
+             alt="Logo"
+             class="loader-logo dark-logo">
+
+        <!-- LIGHT MODE LOGO -->
+        <img src="static/image/AC.png"
+             alt="Logo"
+             class="loader-logo light-logo">
+
+        <!-- LOADING BAR -->
+        <div class="loading-bar">
+            <span></span>
+        </div>
+
+        <!-- TEXT -->
+        <h3 class="loading-text">
+            Loading...
+        </h3>
+
+    </div>
+
+</div>
+
+<style>
+/* =========================
+   MODERN LOADER
+========================= */
+#siteLoader{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999999;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(13,110,253,0.15),
+    transparent 30%),
+
+    radial-gradient(circle at bottom right,
+    rgba(56,189,248,0.12),
+    transparent 30%),
+
+    linear-gradient(135deg,#020617,#07152f,#0f172a);
+
+    transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+body.light-mode #siteLoader{
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(13,110,253,0.10),
+    transparent 30%),
+
+    radial-gradient(circle at bottom right,
+    rgba(56,189,248,0.08),
+    transparent 30%),
+
+    linear-gradient(180deg,#f8fafc,#eef4ff,#ffffff);
+}
+
+/* =========================
+   GLOW EFFECT
+========================= */
+.loader-bg-glow{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+
+    animation: floatGlow 8s infinite ease-in-out;
+}
+
+.glow1{
+    width: 300px;
+    height: 300px;
+    background: #0d6efd;
+
+    top: -100px;
+    left: -100px;
+}
+
+.glow2{
+    width: 280px;
+    height: 280px;
+    background: #38bdf8;
+
+    bottom: -100px;
+    right: -100px;
+
+    animation-delay: 2s;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.modern-loader{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* =========================
+   LOGO
+========================= */
+.loader-logo{
+    width: 110px;
+    max-width: 80%;
+
+    animation:
+    logoFloat 3s infinite ease-in-out;
+
+    margin-bottom: 30px;
+}
+
+/* DARK LOGO DEFAULT */
+.dark-logo{
+    display: block;
+}
+
+.light-logo{
+    display: none;
+}
+
+/* LIGHT MODE LOGO */
+body.light-mode .dark-logo{
+    display: none;
+}
+
+body.light-mode .light-logo{
+    display: block;
+}
+
+/* =========================
+   LOADING BAR
+========================= */
+.loading-bar{
+    width: 260px;
+    height: 6px;
+
+    margin: auto;
+
+    border-radius: 50px;
+    overflow: hidden;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    position: relative;
+}
+
+/* LIGHT MODE */
+body.light-mode .loading-bar{
+    background:
+    rgba(0,0,0,0.08);
+}
+
+.loading-bar span{
+    position: absolute;
+    left: -40%;
+    top: 0;
+
+    width: 40%;
+    height: 100%;
+
+    border-radius: 50px;
+
+    background:
+    linear-gradient(90deg,#0d6efd,#38bdf8);
+
+    animation: loadingMove 1.6s infinite ease;
+}
+
+/* =========================
+   TEXT
+========================= */
+.loading-text{
+    margin-top: 22px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    animation: fadeText 2s infinite;
+}
+
+/* LIGHT MODE TEXT */
+body.light-mode .loading-text{
+    color: #0f172a;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes loadingMove{
+
+    0%{
+        left: -40%;
+    }
+
+    100%{
+        left: 100%;
+    }
+}
+
+@keyframes logoFloat{
+
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-8px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeText{
+
+    0%{
+        opacity: 0.5;
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0.5;
+    }
+}
+
+@keyframes floatGlow{
+
+    0%{
+        transform: translateY(0px) scale(1);
+    }
+
+    50%{
+        transform: translateY(-25px) scale(1.08);
+    }
+
+    100%{
+        transform: translateY(0px) scale(1);
+    }
+}
+
+/* =========================
+   HIDE LOADER
+========================= */
+.loader-hide{
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:576px){
+
+    .loader-logo{
+        width: 80px;
+    }
+
+    .loading-bar{
+        width: 210px;
+    }
+
+    .loading-text{
+        font-size: 15px;
+    }
+}
+</style>
+
+<script>
+/* =========================
+   HIDE LOADER
+========================= */
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("siteLoader");
+
+    setTimeout(() => {
+
+        loader.classList.add("loader-hide");
+
+    }, 1800);
+
+});
+</script>
 
 <!-- ================= PREMIUM NAVBAR ================= -->
 
@@ -119,7 +438,7 @@
 
                         <i class="fa-solid fa-image"></i>
 
-                        Work
+                       Work
 
                     </a>
                 </li>
@@ -437,6 +756,7 @@ body.light-mode .nav-link i{
 
             <div class="col-lg-6"
                  data-aos="fade-right">
+                 <br>
 
                 <!-- BADGE -->
 
@@ -2859,7 +3179,7 @@ body.light-mode .tag{
 </style>
 
 <!-- ================= VIDEO ================= -->
- <section class="client-videos section-padding" id="client-videos">
+<section class="client-videos section-padding" id="client-videos">
     <div class="container">
 
         <div class="section-title text-center mb-5">
@@ -2871,127 +3191,132 @@ body.light-mode .tag{
         </div>
 
         <div class="video-scroll-container">
+
+            <!-- LEFT BUTTON -->
             <button class="video-scroll-btn video-left-btn" onclick="scrollVideos(-1)">
                 <i class="fas fa-chevron-left"></i>
             </button>
 
+            <!-- SCROLL WRAPPER -->
             <div class="video-scroll-wrapper" id="videoSlider">
+
                 <div class="video-track">
+
+                    <!-- VIDEO CARD -->
                     <div class="video-card">
-                        <video class="client-video" muted loop playsinline>
+                        <video class="client-video" muted loop playsinline preload="metadata">
                             <source src="static/video/Anti-Dandruff Shampoo.mp4" type="video/mp4">
                         </video>
+
                         <div class="video-overlay"></div>
+
                         <div class="video-content">
                             <span class="video-tag">Product Ad</span>
                             <h5>Anti-Dandruff Shampoo</h5>
                             <p>Premium Haircare Campaign</p>
-                            <button class="play-btn" onclick="openVideo('static/video/Anti-Dandruff Shampoo.mp4')">
+
+                            <button class="play-btn"
+                                onclick="openVideo('static/video/Anti-Dandruff Shampoo.mp4')">
                                 <i class="fas fa-play"></i>
                             </button>
                         </div>
                     </div>
 
+                    <!-- VIDEO CARD -->
                     <div class="video-card">
-                        <video class="client-video" muted loop playsinline>
+                        <video class="client-video" muted loop playsinline preload="metadata">
                             <source src="static/video/Grill Chicken.mp4" type="video/mp4">
                         </video>
+
                         <div class="video-overlay"></div>
+
                         <div class="video-content">
                             <span class="video-tag">Food Reel</span>
                             <h5>Grill Chicken</h5>
                             <p>Restaurant Marketing Reel</p>
-                            <button class="play-btn" onclick="openVideo('static/video/Grill Chicken.mp4')">
+
+                            <button class="play-btn"
+                                onclick="openVideo('static/video/Grill Chicken.mp4')">
                                 <i class="fas fa-play"></i>
                             </button>
                         </div>
                     </div>
 
+                    <!-- VIDEO CARD -->
                     <div class="video-card">
-                        <video class="client-video" muted loop playsinline>
+                        <video class="client-video" muted loop playsinline preload="metadata">
                             <source src="static/video/HydraFacial Treatment.mp4" type="video/mp4">
                         </video>
+
                         <div class="video-overlay"></div>
+
                         <div class="video-content">
                             <span class="video-tag">Beauty</span>
                             <h5>HydraFacial</h5>
                             <p>Skin Treatment Promotion</p>
-                            <button class="play-btn" onclick="openVideo('static/video/HydraFacial Treatment.mp4')">
+
+                            <button class="play-btn"
+                                onclick="openVideo('static/video/HydraFacial Treatment.mp4')">
                                 <i class="fas fa-play"></i>
                             </button>
                         </div>
                     </div>
 
+                    <!-- VIDEO CARD -->
                     <div class="video-card">
-                        <video class="client-video" muted loop playsinline>
+                        <video class="client-video" muted loop playsinline preload="metadata">
                             <source src="static/video/Pondicherry(1).mp4" type="video/mp4">
                         </video>
+
                         <div class="video-overlay"></div>
+
                         <div class="video-content">
                             <span class="video-tag">Travel</span>
                             <h5>Pondicherry</h5>
                             <p>Tourism Promotion Reel</p>
-                            <button class="play-btn" onclick="openVideo('static/video/Pondicherry(1).mp4')">
+
+                            <button class="play-btn"
+                                onclick="openVideo('static/video/Pondicherry(1).mp4')">
                                 <i class="fas fa-play"></i>
                             </button>
                         </div>
                     </div>
 
+                    <!-- VIDEO CARD -->
                     <div class="video-card">
-                        <video class="client-video" muted loop playsinline>
+                        <video class="client-video" muted loop playsinline preload="metadata">
                             <source src="static/video/PTS screw.mp4" type="video/mp4">
                         </video>
+
                         <div class="video-overlay"></div>
+
                         <div class="video-content">
                             <span class="video-tag">Industry</span>
                             <h5>PTS Screw</h5>
                             <p>Industrial Brand Promotion</p>
-                            <button class="play-btn" onclick="openVideo('static/video/PTS screw.mp4')">
+
+                            <button class="play-btn"
+                                onclick="openVideo('static/video/PTS screw.mp4')">
                                 <i class="fas fa-play"></i>
                             </button>
                         </div>
                     </div>
 
+                    <!-- VIDEO CARD -->
                     <div class="video-card">
-                        <video class="client-video" muted loop playsinline>
+                        <video class="client-video" muted loop playsinline preload="metadata">
                             <source src="static/video/roatu kadai part 2.mp4" type="video/mp4">
                         </video>
+
                         <div class="video-overlay"></div>
+
                         <div class="video-content">
                             <span class="video-tag">Food Reel</span>
                             <h5>Roatu Kadai</h5>
                             <p>Street Food Promotion</p>
-                            <button class="play-btn" onclick="openVideo('static/video/roatu kadai part 2.mp4')">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
 
-                    <div class="video-card">
-                        <video class="client-video" muted loop playsinline>
-                            <source src="static/video/PART-2.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-overlay"></div>
-                        <div class="video-content">
-                            <span class="video-tag">Product Ad</span>
-                            <h5>PART-2</h5>
-                            <p>PART-2</p>
-                            <button class="play-btn" onclick="openVideo('static/video/Anti-Dandruff Shampoo.mp4')">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <video class="client-video" muted loop playsinline>
-                            <source src="static/video/ss m1(patch).mp4" type="video/mp4">
-                        </video>
-                        <div class="video-overlay"></div>
-                        <div class="video-content">
-                            <span class="video-tag">ss m1</span>
-                            <h5>ss m1</h5>
-                            <p>ss m1</p>
-                            <button class="play-btn" onclick="openVideo('static/video/Grill Chicken.mp4')">
+                            <button class="play-btn"
+                                onclick="openVideo('static/video/roatu kadai part 2.mp4')">
                                 <i class="fas fa-play"></i>
                             </button>
                         </div>
@@ -3000,27 +3325,41 @@ body.light-mode .tag{
                 </div>
             </div>
 
+            <!-- RIGHT BUTTON -->
             <button class="video-scroll-btn video-right-btn" onclick="scrollVideos(1)">
                 <i class="fas fa-chevron-right"></i>
             </button>
+
         </div>
     </div>
 </section>
 
+<!-- VIDEO MODAL -->
 <div class="video-modal" id="videoModal">
     <span class="close-video" onclick="closeVideo()">&times;</span>
+
     <video controls id="popupVideo"></video>
 </div>
 
 <style>
-.client-videos {
+/* =========================
+   SECTION
+========================= */
+.client-videos{
     position: relative;
     overflow: hidden;
     padding: 110px 0;
-    background: radial-gradient(circle at top right, rgba(13,110,253,0.15), transparent 25%), linear-gradient(135deg,#020617,#07152f,#0f172a);
+    background:
+    radial-gradient(circle at top right,
+    rgba(13,110,253,0.15),
+    transparent 25%),
+    linear-gradient(135deg,#020617,#07152f,#0f172a);
 }
 
-.works-badge {
+/* =========================
+   TITLE
+========================= */
+.works-badge{
     display: inline-flex;
     align-items: center;
     padding: 10px 24px;
@@ -3033,22 +3372,20 @@ body.light-mode .tag{
     margin-bottom: 22px;
 }
 
-.works-title {
+.works-title{
     font-size: 60px;
     font-weight: 800;
     color: #fff;
     margin-bottom: 18px;
 }
 
-.works-title span {
+.works-title span{
     background: linear-gradient(45deg,#0d6efd,#38bdf8);
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
 }
 
-.video-subtitle {
+.video-subtitle{
     color: #94a3b8;
     font-size: 17px;
     line-height: 1.8;
@@ -3056,29 +3393,35 @@ body.light-mode .tag{
     margin: auto;
 }
 
-.video-scroll-container {
+/* =========================
+   SCROLL AREA
+========================= */
+.video-scroll-container{
     position: relative;
     margin-top: 70px;
 }
 
-.video-scroll-wrapper {
+.video-scroll-wrapper{
     overflow-x: auto;
     scrollbar-width: none;
     scroll-behavior: smooth;
     padding: 15px 70px;
 }
 
-.video-scroll-wrapper::-webkit-scrollbar {
+.video-scroll-wrapper::-webkit-scrollbar{
     display: none;
 }
 
-.video-track {
+.video-track{
     display: flex;
     gap: 28px;
     width: max-content;
 }
 
-.video-card {
+/* =========================
+   VIDEO CARD
+========================= */
+.video-card{
     position: relative;
     width: 280px;
     height: 540px;
@@ -3087,33 +3430,44 @@ body.light-mode .tag{
     flex-shrink: 0;
     cursor: pointer;
     background: #111827;
-    transition: 0.5s ease;
+    transition: 0.4s ease;
     box-shadow: 0 15px 40px rgba(0,0,0,0.35);
 }
 
-.video-card:hover {
-    transform: translateY(-12px) scale(1.03);
-    box-shadow: 0 30px 60px rgba(13,110,253,0.25);
+.video-card:hover{
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(13,110,253,0.25);
 }
 
-.client-video {
+.client-video{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.5s ease;
+    transition: 0.4s ease;
 }
 
-.video-card:hover .client-video {
+.video-card:hover .client-video{
     transform: scale(1.05);
 }
 
-.video-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.05));
+/* =========================
+   ONLY HOVER PLAY
+========================= */
+.video-card:hover .client-video{
+    filter: brightness(1);
 }
 
-.video-content {
+.video-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.95),
+        rgba(0,0,0,0.08)
+    );
+}
+
+.video-content{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -3122,7 +3476,7 @@ body.light-mode .tag{
     z-index: 2;
 }
 
-.video-tag {
+.video-tag{
     display: inline-block;
     padding: 7px 16px;
     border-radius: 30px;
@@ -3133,20 +3487,23 @@ body.light-mode .tag{
     margin-bottom: 14px;
 }
 
-.video-content h5 {
+.video-content h5{
     color: #fff;
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-.video-content p {
+.video-content p{
     color: #d1d5db;
     font-size: 14px;
     margin-bottom: 18px;
 }
 
-.play-btn {
+/* =========================
+   PLAY BUTTON
+========================= */
+.play-btn{
     width: 52px;
     height: 52px;
     border: none;
@@ -3157,13 +3514,16 @@ body.light-mode .tag{
     transition: 0.4s ease;
 }
 
-.play-btn:hover {
-    transform: scale(1.12);
+.play-btn:hover{
+    transform: scale(1.1);
     background: #0d6efd;
     color: #fff;
 }
 
-.video-scroll-btn {
+/* =========================
+   SCROLL BUTTONS
+========================= */
+.video-scroll-btn{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -3176,20 +3536,28 @@ body.light-mode .tag{
     font-size: 18px;
     z-index: 999;
     cursor: pointer;
-    transition: 0.4s ease;
+    transition: 0.3s ease;
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
-.video-scroll-btn:hover {
+.video-scroll-btn:hover{
     transform: translateY(-50%) scale(1.1);
     background: #0d6efd;
     color: #fff;
 }
 
-.video-left-btn { left: 10px; }
-.video-right-btn { right: 10px; }
+.video-left-btn{
+    left: 10px;
+}
 
-.video-modal {
+.video-right-btn{
+    right: 10px;
+}
+
+/* =========================
+   MODAL
+========================= */
+.video-modal{
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.92);
@@ -3200,7 +3568,7 @@ body.light-mode .tag{
     padding: 20px;
 }
 
-.video-modal video {
+.video-modal video{
     width: 100%;
     max-width: 430px;
     max-height: 90vh;
@@ -3208,7 +3576,7 @@ body.light-mode .tag{
     background: #000;
 }
 
-.close-video {
+.close-video{
     position: absolute;
     top: 20px;
     right: 30px;
@@ -3217,117 +3585,274 @@ body.light-mode .tag{
     cursor: pointer;
 }
 
-/* Light Mode Styling */
-body.light-mode .client-videos { background: linear-gradient(180deg, #f8fafc, #eef4ff, #ffffff); }
-body.light-mode .works-title { color: #0f172a; }
-body.light-mode .video-subtitle { color: #475569; }
-body.light-mode .works-badge { background: #fff; border: 1px solid #dbeafe; color: #0d6efd; }
-body.light-mode .video-card { background: #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+/* =========================
+   LIGHT MODE
+========================= */
+body.light-mode .client-videos{
+    background:
+    linear-gradient(180deg,#f8fafc,#eef4ff,#ffffff);
+}
 
-/* Responsive adjustments */
+body.light-mode .works-title{
+    color: #0f172a;
+}
+
+body.light-mode .video-subtitle{
+    color: #475569;
+}
+
+body.light-mode .works-badge{
+    background: #fff;
+    border: 1px solid #dbeafe;
+    color: #0d6efd;
+}
+
+body.light-mode .video-card{
+    background: #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+body.light-mode .video-content h5{
+    color: #fff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 @media(max-width:991px){
-    .works-title { font-size: 44px; }
-    .video-card { width: 240px; height: 470px; }
+
+    .works-title{
+        font-size: 44px;
+    }
+
+    .video-card{
+        width: 240px;
+        height: 470px;
+    }
 }
 
 @media(max-width:576px){
-    .client-videos { padding: 80px 0; }
-    .works-title { font-size: 34px; }
-    .video-subtitle { font-size: 15px; }
-    .video-scroll-wrapper { padding: 10px 45px; }
-    .video-track { gap: 18px; }
-    .video-card { width: 200px; height: 390px; border-radius: 24px; }
-    .video-content { padding: 18px; }
-    .video-content h5 { font-size: 18px; }
-    .video-scroll-btn { width: 42px; height: 42px; font-size: 14px; }
-    .close-video { top: 15px; right: 20px; font-size: 35px; }
+
+    .client-videos{
+        padding: 80px 0;
+    }
+
+    .works-title{
+        font-size: 34px;
+    }
+
+    .video-subtitle{
+        font-size: 15px;
+    }
+
+    .video-scroll-wrapper{
+        padding: 10px 45px;
+    }
+
+    .video-track{
+        gap: 18px;
+    }
+
+    .video-card{
+        width: 200px;
+        height: 390px;
+        border-radius: 24px;
+    }
+
+    .video-content{
+        padding: 18px;
+    }
+
+    .video-content h5{
+        font-size: 18px;
+    }
+
+    .video-scroll-btn{
+        width: 42px;
+        height: 42px;
+        font-size: 14px;
+    }
+
+    .close-video{
+        top: 15px;
+        right: 20px;
+        font-size: 35px;
+    }
 }
 </style>
 
 <script>
-let autoScroll;
 let slider;
+let autoScroll;
 
-document.addEventListener("DOMContentLoaded", function() {
+/* =========================
+   DOM READY
+========================= */
+document.addEventListener("DOMContentLoaded", function () {
+
     slider = document.getElementById("videoSlider");
 
-    // Play all track previews
-    document.querySelectorAll(".client-video").forEach(video => {
-        video.play().catch(err => console.log("Autoplay blocked/waiting for user interaction"));
+    const track = document.querySelector(".video-track");
+
+    /* =========================================
+       CLONE ITEMS FOR PERFECT INFINITE LOOP
+    ========================================= */
+    const cards = [...track.children];
+
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        track.appendChild(clone);
     });
 
-    // Handle Infinite loop mechanics on scroll
-    slider.addEventListener('scroll', () => {
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
-            slider.scrollLeft = 5; 
-        } else if (slider.scrollLeft <= 0) {
-            slider.scrollLeft = slider.scrollWidth - slider.clientWidth - 5;
+    /* =========================================
+       VIDEO HOVER PLAY ONLY
+    ========================================= */
+    setupVideoHover();
+
+    /* =========================================
+       AUTO SCROLL START
+    ========================================= */
+    startAutoScroll();
+
+    /* Pause scroll on hover */
+    slider.addEventListener("mouseenter", stopAutoScroll);
+    slider.addEventListener("mouseleave", startAutoScroll);
+
+    /* =========================================
+       INFINITE LOOP RESET
+    ========================================= */
+    slider.addEventListener("scroll", () => {
+
+        const halfWidth = slider.scrollWidth / 2;
+
+        if (slider.scrollLeft >= halfWidth) {
+            slider.scrollLeft = 0;
         }
     });
 
-    // Start Auto Scroll
-    startAutoScroll();
-
-    // Pause on Hover
-    slider.addEventListener("mouseenter", stopAutoScroll);
-    slider.addEventListener("mouseleave", startAutoScroll);
 });
 
-/* ================= MANUAL NAVIGATION ================= */
-function scrollVideos(direction) {
-    if (!slider) return;
-    
-    // Temporarily halt auto scroll to prevent stuttering
+/* =========================================
+   VIDEO HOVER FUNCTION
+========================================= */
+function setupVideoHover() {
+
+    document.querySelectorAll(".video-card").forEach(card => {
+
+        const video = card.querySelector(".client-video");
+
+        video.pause();
+
+        /* Hover Play */
+        card.addEventListener("mouseenter", () => {
+
+            // Pause all videos
+            document.querySelectorAll(".client-video").forEach(v => {
+                v.pause();
+                v.currentTime = 0;
+            });
+
+            video.play();
+
+        });
+
+        /* Hover Leave */
+        card.addEventListener("mouseleave", () => {
+
+            video.pause();
+            video.currentTime = 0;
+
+        });
+
+    });
+}
+
+/* =========================================
+   AUTO SCROLL
+========================================= */
+function startAutoScroll() {
+
     stopAutoScroll();
-    
-    const cardWidth = 308; // Card space width (280 width + 28 gap)
+
+    autoScroll = setInterval(() => {
+
+        slider.scrollLeft += 1;
+
+    }, 15);
+}
+
+/* =========================================
+   STOP AUTO SCROLL
+========================================= */
+function stopAutoScroll() {
+
+    clearInterval(autoScroll);
+
+}
+
+/* =========================================
+   MANUAL SCROLL
+========================================= */
+function scrollVideos(direction) {
+
+    stopAutoScroll();
+
+    const cardWidth = 308;
+
     slider.scrollBy({
         left: direction * cardWidth,
         behavior: "smooth"
     });
 
-    // Restart autoscroll safely after transition completes
     setTimeout(() => {
-        if (!slider.matches(':hover')) { 
+
+        if (!slider.matches(":hover")) {
             startAutoScroll();
         }
-    }, 600);
+
+    }, 800);
 }
 
-function startAutoScroll() {
-    if (autoScroll) clearInterval(autoScroll);
-    autoScroll = setInterval(() => {
-        if (slider) slider.scrollLeft += 1;
-    }, 15);
-}
-
-function stopAutoScroll() {
-    clearInterval(autoScroll);
-}
-
-/* ================= VIDEO MODAL POPUP ================= */
+/* =========================================
+   VIDEO MODAL
+========================================= */
 function openVideo(videoSrc) {
+
     const modal = document.getElementById("videoModal");
     const video = document.getElementById("popupVideo");
-    video.src = videoSrc;
+
     modal.style.display = "flex";
+
+    video.src = videoSrc;
+
     video.play();
 }
 
+/* =========================================
+   CLOSE VIDEO
+========================================= */
 function closeVideo() {
+
     const modal = document.getElementById("videoModal");
     const video = document.getElementById("popupVideo");
+
     video.pause();
     video.currentTime = 0;
+
     modal.style.display = "none";
 }
 
-// Global click monitoring to close modal outside bounds
-window.addEventListener("click", function(e) {
+/* =========================================
+   CLOSE OUTSIDE CLICK
+========================================= */
+window.addEventListener("click", function (e) {
+
     const modal = document.getElementById("videoModal");
+
     if (e.target === modal) {
         closeVideo();
     }
+
 });
 </script>
 
