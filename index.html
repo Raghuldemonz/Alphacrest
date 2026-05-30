@@ -19,6 +19,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -667,22 +668,72 @@ document.addEventListener("DOMContentLoaded", function() {
                     Trichy’s Creative Digital Marketing Agency
 
                 </div>
-<h1 class="hero-title">
-    WE BUILD BRANDS<br>
-    THAT <span class="grow-text">GROW<br>DIGITALLY</span>
+
+
+                   
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+<h1 class="hero-title" >
+    WE BUILD BRANDS
+    <span class="hero-line">
+        THAT <span class="grow-text">GROW DIGITALLY </span>
+    </span>
 </h1>
+
 <style>
-    .grow-text{
-    display:inline-block;
+
+
+    .hero-title{
+     font-family:'Sora',sans-serif;
+    font-size:48px;
     font-weight:800;
-    color:#38bdf8;
     line-height:1.1;
+    letter-spacing:-2px;
+    color:#fff;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.hero-line{
+    display:block;
+    margin-top:8px;
+}
+
+/* IMPORTANT */
+.grow-text{
+
+    display:inline; /* block remove */
+
+    background:linear-gradient(
+        135deg,
+        #00e5ff,
+        #38bdf8,
+        #0d6efd
+    );
+
+    background-size:200% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:textGlow 4s linear infinite;
+}
+
+@keyframes textGlow{
+
+    0%{
+        background-position:0% center;
+    }
+
+    100%{
+        background-position:200% center;
+    }
+
 }
     </style>
 
-                   
-
-                </h1>
 
                 <!-- DESCRIPTION -->
 
@@ -1033,22 +1084,7 @@ body{
     margin-bottom:24px;
 }
 
-/* GROW TEXT */
 
-.grow-text{
-
-    display:block;
-
-    background:linear-gradient(45deg,#0d6efd,#38bdf8,#00e0ff);
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    background-size:200% auto;
-
-    animation:textGlow 5s linear infinite;
-}
 
 @keyframes textGlow{
 
@@ -5046,56 +5082,472 @@ AOS.init({
     <div class="row g-4 align-items-stretch">
 
       <!-- FORM -->
-      <div class="col-lg-6">
+      <div class="col-md-6">
+    <input type="text" class="form-control" id="name"
+           placeholder="Your Name" required>
+</div>
+<div class="col-md-6">
 
-        <div class="contact-box">
+   <select id="country" class="form-control" required>
+    <option value="">Select Country</option>
+    <option value="India">🇮🇳 India</option>
+    <option value="United States">🇺🇸 United States</option>
+    <option value="United Kingdom">🇬🇧 United Kingdom</option>
+    <option value="Australia">🇦🇺 Australia</option>
+    <option value="United Arab Emirates">🇦🇪 UAE</option>
+    <option value="Singapore">🇸🇬 Singapore</option>
+</select>
 
-          <form  id="contactForm">
+</div>
 
-            <div class="row g-4">
 
-              <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
+<div class="col-md-6">
+    <div class="phone-group">
+       <select class="country-code" id="countryCode">
+    <option value="+91">🇮🇳 +91</option>
+    <option value="+1">🇺🇸 +1</option>
+    <option value="+44">🇬🇧 +44</option>
+    <option value="+61">🇦🇺 +61</option>
+    <option value="+971">🇦🇪 +971</option>
+    <option value="+65">🇸🇬 +65</option>
+</select>
 
-              <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Phone Number">
-              </div>
+      <input type="tel"
+       class="form-control"
+       id="phone"
+       placeholder="Phone Number"
+       maxlength="15"
+       inputmode="numeric"
+       pattern="[0-9]{10,15}"
+       required>
+    </div>
+</div>
 
-              <div class="col-md-6">
-                <input type="email" class="form-control" placeholder="Email Address">
-              </div>
+<div class="col-md-6">
+    <input type="email"
+           class="form-control"
+           id="email"
+           placeholder="Email Address"
+           required>
+</div>
 
-              <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Service Needed">
-              </div>
+<div class="col-md-12">
+    <select class="form-control" id="service" required>
+        <option value="">Select Service</option>
+        <option>Social Media Marketing</option>
+        <option>Content Creation</option>
+        <option>Branding</option>
+        <option>Website Development</option>
+        <option>SEO</option>
+        <option>Google Ads</option>
+    </select>
+</div>
 
-              <div class="col-12">
-                <textarea rows="6" class="form-control" placeholder="Your Message"></textarea>
-              </div>
+<div class="col-12">
+    <textarea rows="6"
+              class="form-control"
+              id="message"
+              placeholder="Your Message"
+              required></textarea>
+</div>
 
-              <div class="col-12 text-center">
-                <button class="btn-custom">Send Inquiry</button>
-              </div>
+<div class="col-12 text-center">
+    <button type="submit" class="btn-custom">
+        <span>Send Inquiry</span>
+        <i class="fas fa-paper-plane"></i>
+    </button>
+</div>
+<style>
+    .phone-group{
+    display:flex;
+    gap:10px;
+}
 
+.country-code{
+    width:120px;
+    border:none;
+    border-radius:12px;
+    padding:12px;
+    background:#111827;
+    color:#fff;
+}
+
+body.light-mode .country-code{
+    background:#f1f5f9;
+    color:#111;
+}
+
+/* INPUT ANIMATION */
+
+.form-control,
+.country-code{
+
+    transition:.35s ease;
+}
+
+.form-control:hover,
+.country-code:hover{
+
+    transform:translateY(-2px);
+}
+
+.form-control:focus,
+.country-code:focus{
+
+    transform:translateY(-3px);
+
+    border:1px solid #38bdf8;
+
+    box-shadow:
+    0 0 0 4px rgba(56,189,248,.15),
+    0 10px 25px rgba(56,189,248,.2);
+}
+
+/* BUTTON */
+
+.btn-custom{
+
+    min-width:220px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.btn-custom i{
+
+    transition:.3s;
+}
+
+.btn-custom:hover i{
+
+    transform:translateX(5px);
+}
+
+/* CONTACT BOX HOVER */
+
+.contact-box{
+
+    transition:.4s ease;
+}
+
+.contact-box:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.35);
+}
+
+/* MAP */
+
+.map-box{
+
+    transition:.4s ease;
+}
+
+.map-box:hover{
+
+    transform:translateY(-6px);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .phone-group{
+
+        flex-direction:column;
+    }
+
+    .country-code{
+
+        width:100%;
+    }
+
+    .contact-box{
+
+        padding:25px;
+    }
+
+    .section-title h2{
+
+        font-size:34px;
+    }
+}
+    </style>
+    <script>
+
+const phoneInput = document.getElementById("phone");
+
+phoneInput.addEventListener("input", function () {
+
+    this.value = this.value.replace(/[^0-9]/g, '');
+
+});
+
+</script>
+<script>
+
+document.getElementById("phone").addEventListener("keypress", function(e){
+
+    if(!/[0-9]/.test(e.key)){
+
+        e.preventDefault();
+
+    }
+
+});
+let phoneRegex = /^[0-9]{10,15}$/;
+
+if(!phoneRegex.test(phone)){
+
+    showPopup(
+        "error",
+        "Invalid Phone Number",
+        "Only numbers are allowed (10-15 digits)."
+    );
+
+    return;
+}
+
+</script>
+<script>
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+
+    let country = document.getElementById("country").value;
+
+    let countryCode = document.getElementById("countryCode").value;
+
+    let phone = document.getElementById("phone").value.trim();
+
+    let email = document.getElementById("email").value.trim();
+
+    let service = document.getElementById("service").value;
+
+    let message = document.getElementById("message").value.trim();
+
+    let phoneRegex = /^[0-9]{10,15}$/;
+
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    /* NAME */
+
+    if(name.length < 3){
+
+        Swal.fire({
+            icon:'warning',
+            title:'Invalid Name',
+            text:'Please enter at least 3 characters.',
+            confirmButtonColor:'#0d6efd'
+        });
+
+        return;
+    }
+
+    /* COUNTRY */
+
+    if(country === ""){
+
+        Swal.fire({
+            icon:'warning',
+            title:'Country Required',
+            text:'Please select your country.',
+            confirmButtonColor:'#0d6efd'
+        });
+
+        return;
+    }
+
+    /* PHONE */
+
+    if(!phoneRegex.test(phone)){
+
+        Swal.fire({
+            icon:'error',
+            title:'Invalid Phone Number',
+            text:'Enter a valid mobile number (10-15 digits).',
+            confirmButtonColor:'#0d6efd'
+        });
+
+        return;
+    }
+
+    /* EMAIL */
+
+    if(!emailRegex.test(email)){
+
+        Swal.fire({
+            icon:'error',
+            title:'Invalid Email',
+            text:'Please enter a valid email address.',
+            confirmButtonColor:'#0d6efd'
+        });
+
+        return;
+    }
+
+    /* SERVICE */
+
+    if(service === ""){
+
+        Swal.fire({
+            icon:'warning',
+            title:'Select Service',
+            text:'Please choose a service.',
+            confirmButtonColor:'#0d6efd'
+        });
+
+        return;
+    }
+
+    /* MESSAGE */
+
+    if(message.length < 10){
+
+        Swal.fire({
+            icon:'warning',
+            title:'Message Too Short',
+            text:'Message must contain at least 10 characters.',
+            confirmButtonColor:'#0d6efd'
+        });
+
+        return;
+    }
+
+    /* SUCCESS */
+
+    Swal.fire({
+        icon:'success',
+        title:'Inquiry Sent Successfully!',
+        html: `
+            <div style="font-size:15px">
+                <b>Name:</b> ${name}<br>
+                <b>Country:</b> ${country}<br>
+                <b>Phone:</b> ${countryCode} ${phone}<br>
+                <b>Email:</b> ${email}
             </div>
+        `,
+        confirmButtonText:'Done',
+        confirmButtonColor:'#0d6efd'
+    });
 
-          </form>
+    this.reset();
 
-        </div>
+});
 
-      </div>
+</script>
+<style>
+    /* DROPDOWN */
+
+.country-code,
+#country,
+#service{
+
+    background:#111827;
+    color:#ffffff;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:12px;
+
+    padding:12px;
+
+    transition:.3s ease;
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+}
+
+/* LIGHT MODE */
+
+body.light-mode .country-code,
+body.light-mode #country,
+body.light-mode #service{
+
+    background:#f8fafc;
+
+    color:#111827;
+
+    border:1px solid #dbeafe;
+
+}
+
+/* FOCUS */
+
+.country-code:focus,
+#country:focus,
+#service:focus{
+
+    outline:none;
+
+    border-color:#38bdf8;
+
+    box-shadow:
+    0 0 0 4px rgba(56,189,248,.15);
+
+}
+
+/* OPTION COLORS */
+
+#country option,
+#service option,
+.country-code option{
+
+    background:#111827;
+    color:#ffffff;
+
+}
+
+/* LIGHT MODE OPTION */
+
+body.light-mode #country option,
+body.light-mode #service option,
+body.light-mode .country-code option{
+
+    background:#ffffff;
+    color:#111827;
+
+}
+.country-code,
+#country,
+#service{
+
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%2338bdf8' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6 6 6-6' stroke='%2338bdf8' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+
+    background-repeat:no-repeat;
+
+    background-position:right 15px center;
+
+    padding-right:45px;
+
+}
+    </style>
+
 
       <!-- MAP -->
-      <div class="col-lg-6">
+      <div class="col-lg-12">
 
         <div class="map-box">
 
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.3!2d78.7047!3d10.7905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5c8c1b5c3f7%3A0x0!2zVHJpY2h5LCBUYW1pbCBOYWR1!5e0!3m2!1sen!2sin!4v000000"
-            allowfullscreen=""
-            loading="lazy">
-          </iframe>
+    
+
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d979.716889030169!2d78.68500142685834!3d10.82144618903383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1780119196839!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </div>
 
@@ -5745,6 +6197,6 @@ form.addEventListener("submit", e => {
 </script>
 <!----mouse pointer---->
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
