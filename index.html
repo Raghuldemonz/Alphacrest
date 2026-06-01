@@ -1,3 +1,39 @@
+<?php
+// ✅ This MUST be the first thing in index.php — before ANY HTML, spaces, or blank lines
+session_start();
+include("dbconnect.php");
+
+if(isset($_POST['send']))
+{
+    $name       = $_POST['name'];
+    $country    = $_POST['country'];
+    $code       = $_POST['countryCode'];
+    $mobile     = $_POST['mobile'];
+    $email      = $_POST['email'];
+    $service    = $_POST['service'];
+    $message    = $_POST['message'];
+    $fullMobile = $code . $mobile;
+    $date       = date("Y-m-d "); // ✅ MySQL-compatible format
+
+    $stmt = mysqli_prepare($connect,
+        "INSERT INTO messagedb (name, country, mobile, email, service, message, date)
+         VALUES (?, ?, ?, ?, ?, ?, ?)"
+    );
+
+    mysqli_stmt_bind_param($stmt, "sssssss",
+        $name, $country, $fullMobile, $email, $service, $message, $date
+    );
+
+    if(mysqli_stmt_execute($stmt))
+    {
+        $_SESSION['form_status'] = 'success';
+    }
+    else
+    {
+        $_SESSION['form_status'] = 'error';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -379,7 +415,7 @@ window.addEventListener("load", () => {
             <ul class="navbar-nav ms-auto align-items-lg-center">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="#home">
+                    <a class="nav-link " href="#home">
                         <i class="fa-solid fa-house"></i> Home
                     </a>
                 </li>
@@ -3345,6 +3381,11 @@ AOS.init({
 
 </script>
 <!------------------------------------------------------------------------------>
+<?php
+include("dbconnect.php");
+
+$logos = mysqli_query($connect,"SELECT * FROM logodb ORDER BY id DESC");
+?>
 <!-- ================= CLIENT SECTION ================= -->
 <style>
     /* ================= DARK MODE ================= */
@@ -3705,137 +3746,44 @@ body.light-mode .logo-card{
 
         <!-- LOGO SLIDER -->
 
-        <div class="logo-slider">
+       <div class="logo-slider">
 
-            <div class="logo-track">
+    <div class="logo-track">
 
-                <!-- LOGOS -->
+        <?php
+        while($row = mysqli_fetch_assoc($logos))
+        {
+        ?>
+            <div class="logo-card">
+                <img src="logouploads/<?php echo $row['logoimage']; ?>"
+                     alt="<?php echo $row['logoname']; ?>">
+            </div>
+        <?php
+        }
+        ?>
 
-                <div class="logo-card">
-                    <img src="static/clientlogo/Ag.jpg"
-                         alt="AG Logo">
-                </div>
+        <!-- Duplicate logos for smooth infinite scroll -->
 
-                <div class="logo-card">
-                    <img src="static/clientlogo/Ambur.jpg"
-                         alt="Ambur Logo">
-                </div>
+        <?php
 
-                <div class="logo-card">
-                    <img src="static/clientlogo/Aminova.png"
-                         alt="Aminova Logo">
-                </div>
+        $logos2 = mysqli_query($connect,"SELECT * FROM logodb ORDER BY id DESC");
 
-                <div class="logo-card">
-                    <img src="static/clientlogo/Dhaliwals.jpg"
-                         alt="Dhaliwals Logo">
-                </div>
+        while($row = mysqli_fetch_assoc($logos2))
+        {
+        ?>
 
-                <div class="logo-card">
-                    <img src="static/clientlogo/Dr_s Bio.jpg"
-                         alt="Dr Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Elite.jpg"
-                         alt="Elite Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/First nest.jpg"
-                         alt="First Nest Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Halofit.jpg"
-                         alt="Halofit Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Hub.jpg"
-                         alt="Hub Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Janani Motorx.jpg"
-                         alt="Janani Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Manjal.jpg"
-                         alt="Manjal Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/MJ.jpg"
-                         alt="MJ Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/MPM.jpg"
-                         alt="MPM Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Oracle.jpeg"
-                         alt="Oracle Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Peak Food.jpg"
-                         alt="Peak Food Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Shanas.jpg"
-                         alt="Shanas Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Tandour.PNG"
-                         alt="Tandour Logo">
-                </div>
-
-                <!-- DUPLICATE FOR SMOOTH LOOP -->
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Ag.jpg"
-                         alt="AG Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Ambur.jpg"
-                         alt="Ambur Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Aminova.png"
-                         alt="Aminova Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Dhaliwals.jpg"
-                         alt="Dhaliwals Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Dr_s Bio.jpg"
-                         alt="Dr Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/Elite.jpg"
-                         alt="Elite Logo">
-                </div>
-
-                <div class="logo-card">
-                    <img src="static/clientlogo/First nest.jpg"
-                         alt="First Nest Logo">
-                </div>
-
+            <div class="logo-card">
+                <img src="logouploads/<?php echo $row['logoimage']; ?>"
+                     alt="<?php echo $row['logoname']; ?>">
             </div>
 
-        </div>
+        <?php
+        }
+        ?>
+
+    </div>
+
+</div>
 
     </div>
 
@@ -4545,585 +4493,278 @@ AOS.init({
 
 </script>
 
-<!-------------------------------------------------------------------------------->
-<!-- ================= CONTACT ================= -->
+<!--------------------------------Contact------------------------------------------------>
 
-<section class="contact section-padding" id="contact">
 
-  <div class="container">
 
-    <div class="section-title text-center mb-5">
-      <h2>Let's <span>Connect</span></h2>
+
+<!-- ✅ All your HTML starts here, AFTER the closing ?> -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-------------------------------- Contact Section -------------------------------->
+<section class="contact-section" id="contact">
+    <div class="container">
+
+        <div class="section-title text-center mb-5">
+            <h2>Let's <span>Connect</span></h2>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+
+            <!-- Left: Contact Form -->
+            <div class="col-lg-6">
+                <div class="contact-box">
+
+                    <form method="POST" id="contactForm">
+                        <input type="hidden" name="send" value="1">
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <input type="text" name="name" id="name"
+                                    class="form-control"
+                                    placeholder="Your Name" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <select name="country" id="country"
+                                    class="form-control" required>
+                                    <option value="" disabled selected>Select Country</option>
+                                    <option>India</option>
+                                    <option>USA</option>
+                                    <option>UK</option>
+                                    <option>UAE</option>
+                                    <option>Singapore</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="phone-group">
+                                    <select name="countryCode" id="countryCode"
+                                        class="country-code" required>
+                                        <option>+91</option>
+                                        <option>+1</option>
+                                        <option>+44</option>
+                                        <option>+971</option>
+                                    </select>
+
+                                    <input type="tel" name="mobile" id="phone"
+                                        class="form-control"
+                                        placeholder="Mobile No." required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="email" name="email" id="email"
+                                    class="form-control"
+                                    placeholder="Email Address" required>
+                            </div>
+
+                            <div class="col-12">
+                                <select name="service" id="service"
+                                    class="form-control" required>
+                                    <option value="" disabled selected>Select Service</option>
+                                    <option>Social Media Marketing</option>
+                                    <option>Branding</option>
+                                    <option>Content Creation</option>
+                                    <option>Meta Ads</option>
+                                    <option>Web Devlopment</option>
+                                    <option>Video Production</option>
+                                      <option>AI Storytelling Videos</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <textarea name="message" id="message"
+                                    rows="5"
+                                    class="form-control"
+                                    placeholder="Your Message" required></textarea>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <input type="submit" value="Send" id="sendBtn" class="btn-custom">
+                            </div>
+                            
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- Right: Google Map -->
+            <div class="col-lg-6">
+                <div class="map-box">
+                    <iframe
+                        src="https://maps.google.com/maps?q=London&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="100%"
+                        style="border:0; min-height: 400px;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
     </div>
+</section>
 
-    <div class="row g-4 align-items-stretch">
+<!-- SweetAlert JS loaded at the bottom AFTER all HTML -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-      <!-- FORM -->
-      <div class="col-md-6">
-    <input type="text" class="form-control" id="name"
-           placeholder="Your Name" required>
-</div>
-<div class="col-md-6">
+<?php if(isset($_SESSION['form_status'])) { ?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    <?php if($_SESSION['form_status'] == 'success') { ?>
+    Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: 'Your message stored successfully',
+        confirmButtonColor: '#06b6d4'
+    });
+    <?php } else { ?>
+    Swal.fire({
+        icon: 'error',
+        title: 'Failed!',
+        text: 'Database insert error',
+        confirmButtonColor: '#ef4444'
+    });
+    <?php } ?>
+});
+</script>
+<?php
+    unset($_SESSION['form_status']); // clear after showing
+}
+?>
 
-   <select id="country" class="form-control" required>
-    <option value="">Select Country</option>
-    <option value="India">🇮🇳 India</option>
-    <option value="United States">🇺🇸 United States</option>
-    <option value="United Kingdom">🇬🇧 United Kingdom</option>
-    <option value="Australia">🇦🇺 Australia</option>
-    <option value="United Arab Emirates">🇦🇪 UAE</option>
-    <option value="Singapore">🇸🇬 Singapore</option>
-</select>
-
-</div>
-
-
-<div class="col-md-6">
-    <div class="phone-group">
-       <select class="country-code" id="countryCode">
-    <option value="+91">🇮🇳 +91</option>
-    <option value="+1">🇺🇸 +1</option>
-    <option value="+44">🇬🇧 +44</option>
-    <option value="+61">🇦🇺 +61</option>
-    <option value="+971">🇦🇪 +971</option>
-    <option value="+65">🇸🇬 +65</option>
-</select>
-
-      <input type="tel"
-       class="form-control"
-       id="phone"
-       placeholder="Phone Number"
-       maxlength="15"
-       inputmode="numeric"
-       pattern="[0-9]{10,15}"
-       required>
-    </div>
-</div>
-
-<div class="col-md-6">
-    <input type="email"
-           class="form-control"
-           id="email"
-           placeholder="Email Address"
-           required>
-</div>
-
-<div class="col-md-12">
-    <select class="form-control" id="service" required>
-        <option value="">Select Service</option>
-        <option>Social Media Marketing</option>
-        <option>Content Creation</option>
-        <option>Branding</option>
-        <option>Website Development</option>
-        <option>SEO</option>
-        <option>Google Ads</option>
-    </select>
-</div>
-
-<div class="col-12">
-    <textarea rows="6"
-              class="form-control"
-              id="message"
-              placeholder="Your Message"
-              required></textarea>
-</div>
-
-<div class="col-12 text-center">
-    <button type="submit" class="btn-custom">
-        <span>Send Inquiry</span>
-        <i class="fas fa-paper-plane"></i>
-    </button>
-</div>
 <style>
-    .phone-group{
+    input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+}
+/* Root Dark variables (Default) */
+:root {
+    --box-bg: #111827;
+    --input-bg: #0f172a;
+    --text-color: #ffffff;
+    --border-color: rgba(255,255,255,0.08);
+    --input-border: rgba(255,255,255,0.1);
+    --placeholder-color: #cbd5e1;
+}
+
+/* Light mode overrides */
+body.light-mode {
+    --box-bg: #ffffff;
+    --input-bg: #f1f5f9;
+    --text-color: #111827;
+    --border-color: #e5e7eb;
+    --input-border: #cbd5e1;
+    --placeholder-color: #64748b;
+}
+
+body {
+    background-color: #0b0f19;
+    transition: background-color 0.3s ease;
+}
+body.light-mode {
+    background-color: #f8fafc;
+}
+
+.contact-section{
+    padding:80px 0;
+}
+
+/* BOX */
+.contact-box{
+    background: var(--box-bg);
+    padding:30px;
+    border-radius:20px;
+    border:1px solid var(--border-color);
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* TITLE */
+.section-title h2{
+    color: var(--text-color);
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.section-title span{
+    color:#06b6d4;
+}
+
+/* INPUT */
+.form-control, 
+.country-code,
+select.form-control,
+textarea.form-control {
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border-radius:12px;
+    background: var(--input-bg) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--input-border) !important;
+    outline:none;
+    transition: all 0.3s ease;
+}
+
+.form-control::placeholder, 
+textarea.form-control::placeholder {
+    color: var(--placeholder-color) !important;
+}
+
+/* DROPDOWN ARROW FIX */
+select.form-control,
+.country-code{
+    appearance: auto !important;
+}
+
+/* PHONE GROUP */
+.phone-group{
     display:flex;
     gap:10px;
 }
 
 .country-code{
-    width:120px;
-    border:none;
-    border-radius:12px;
-    padding:12px;
-    background:#111827;
-    color:#fff;
-}
-
-body.light-mode .country-code{
-    background:#f1f5f9;
-    color:#111;
-}
-
-/* INPUT ANIMATION */
-
-.form-control,
-.country-code{
-
-    transition:.35s ease;
-}
-
-.form-control:hover,
-.country-code:hover{
-
-    transform:translateY(-2px);
-}
-
-.form-control:focus,
-.country-code:focus{
-
-    transform:translateY(-3px);
-
-    border:1px solid #38bdf8;
-
-    box-shadow:
-    0 0 0 4px rgba(56,189,248,.15),
-    0 10px 25px rgba(56,189,248,.2);
-}
-
-/* BUTTON */
-
-.btn-custom{
-
-    min-width:220px;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.btn-custom i{
-
-    transition:.3s;
-}
-
-.btn-custom:hover i{
-
-    transform:translateX(5px);
-}
-
-/* CONTACT BOX HOVER */
-
-.contact-box{
-
-    transition:.4s ease;
-}
-
-.contact-box:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.35);
-}
-
-/* MAP */
-
-.map-box{
-
-    transition:.4s ease;
-}
-
-.map-box:hover{
-
-    transform:translateY(-6px);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .phone-group{
-
-        flex-direction:column;
-    }
-
-    .country-code{
-
-        width:100%;
-    }
-
-    .contact-box{
-
-        padding:25px;
-    }
-
-    .section-title h2{
-
-        font-size:34px;
-    }
-}
-    </style>
-    <script>
-
-const phoneInput = document.getElementById("phone");
-
-phoneInput.addEventListener("input", function () {
-
-    this.value = this.value.replace(/[^0-9]/g, '');
-
-});
-
-</script>
-<script>
-
-document.getElementById("phone").addEventListener("keypress", function(e){
-
-    if(!/[0-9]/.test(e.key)){
-
-        e.preventDefault();
-
-    }
-
-});
-let phoneRegex = /^[0-9]{10,15}$/;
-
-if(!phoneRegex.test(phone)){
-
-    showPopup(
-        "error",
-        "Invalid Phone Number",
-        "Only numbers are allowed (10-15 digits)."
-    );
-
-    return;
-}
-
-</script>
-<script>
-
-document.getElementById("contactForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    let name = document.getElementById("name").value.trim();
-
-    let country = document.getElementById("country").value;
-
-    let countryCode = document.getElementById("countryCode").value;
-
-    let phone = document.getElementById("phone").value.trim();
-
-    let email = document.getElementById("email").value.trim();
-
-    let service = document.getElementById("service").value;
-
-    let message = document.getElementById("message").value.trim();
-
-    let phoneRegex = /^[0-9]{10,15}$/;
-
-    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    /* NAME */
-
-    if(name.length < 3){
-
-        Swal.fire({
-            icon:'warning',
-            title:'Invalid Name',
-            text:'Please enter at least 3 characters.',
-            confirmButtonColor:'#0d6efd'
-        });
-
-        return;
-    }
-
-    /* COUNTRY */
-
-    if(country === ""){
-
-        Swal.fire({
-            icon:'warning',
-            title:'Country Required',
-            text:'Please select your country.',
-            confirmButtonColor:'#0d6efd'
-        });
-
-        return;
-    }
-
-    /* PHONE */
-
-    if(!phoneRegex.test(phone)){
-
-        Swal.fire({
-            icon:'error',
-            title:'Invalid Phone Number',
-            text:'Enter a valid mobile number (10-15 digits).',
-            confirmButtonColor:'#0d6efd'
-        });
-
-        return;
-    }
-
-    /* EMAIL */
-
-    if(!emailRegex.test(email)){
-
-        Swal.fire({
-            icon:'error',
-            title:'Invalid Email',
-            text:'Please enter a valid email address.',
-            confirmButtonColor:'#0d6efd'
-        });
-
-        return;
-    }
-
-    /* SERVICE */
-
-    if(service === ""){
-
-        Swal.fire({
-            icon:'warning',
-            title:'Select Service',
-            text:'Please choose a service.',
-            confirmButtonColor:'#0d6efd'
-        });
-
-        return;
-    }
-
-    /* MESSAGE */
-
-    if(message.length < 10){
-
-        Swal.fire({
-            icon:'warning',
-            title:'Message Too Short',
-            text:'Message must contain at least 10 characters.',
-            confirmButtonColor:'#0d6efd'
-        });
-
-        return;
-    }
-
-    /* SUCCESS */
-
-    Swal.fire({
-        icon:'success',
-        title:'Inquiry Sent Successfully!',
-        html: `
-            <div style="font-size:15px">
-                <b>Name:</b> ${name}<br>
-                <b>Country:</b> ${country}<br>
-                <b>Phone:</b> ${countryCode} ${phone}<br>
-                <b>Email:</b> ${email}
-            </div>
-        `,
-        confirmButtonText:'Done',
-        confirmButtonColor:'#0d6efd'
-    });
-
-    this.reset();
-
-});
-
-</script>
-<style>
-    /* DROPDOWN */
-
-.country-code,
-#country,
-#service{
-
-    background:#111827;
-    color:#ffffff;
-
-    border:1px solid rgba(255,255,255,.1);
-
-    border-radius:12px;
-
-    padding:12px;
-
-    transition:.3s ease;
-
-    appearance:none;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-
-}
-
-/* LIGHT MODE */
-
-body.light-mode .country-code,
-body.light-mode #country,
-body.light-mode #service{
-
-    background:#f8fafc;
-
-    color:#111827;
-
-    border:1px solid #dbeafe;
-
-}
-
-/* FOCUS */
-
-.country-code:focus,
-#country:focus,
-#service:focus{
-
-    outline:none;
-
-    border-color:#38bdf8;
-
-    box-shadow:
-    0 0 0 4px rgba(56,189,248,.15);
-
-}
-
-/* OPTION COLORS */
-
-#country option,
-#service option,
-.country-code option{
-
-    background:#111827;
-    color:#ffffff;
-
-}
-
-/* LIGHT MODE OPTION */
-
-body.light-mode #country option,
-body.light-mode #service option,
-body.light-mode .country-code option{
-
-    background:#ffffff;
-    color:#111827;
-
-}
-.country-code,
-#country,
-#service{
-
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%2338bdf8' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6 6 6-6' stroke='%2338bdf8' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-
-    background-repeat:no-repeat;
-
-    background-position:right 15px center;
-
-    padding-right:45px;
-
-}
-    </style>
-
-
-      <!-- MAP -->
-      <div class="col-lg-12">
-
-        <div class="map-box">
-
-    
-
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d979.716889030169!2d78.68500142685834!3d10.82144618903383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1780119196839!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ================= CSS ================= -->
-
-<style>
-
-/* BASE THEME */
-body{
-    transition:0.4s ease;
-}
-
-/* DARK MODE (default) */
-body{
-    background:#0b1220;
-    color:#cbd5e1;
-}
-
-/* LIGHT MODE */
-body.light-mode{
-    background:#f8fafc;
-    color:#111827;
-}
-
-/* CONTACT BOX */
-.contact-box{
-    background:rgba(17,24,39,0.85);
-    backdrop-filter:blur(12px);
-    padding:35px;
-    border-radius:22px;
-    border:1px solid rgba(255,255,255,0.08);
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
-    transition:0.4s ease;
-}
-
-/* LIGHT MODE BOX */
-body.light-mode .contact-box{
-    background:#ffffff;
-    border:1px solid #e5e7eb;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-/* INPUTS */
-.form-control{
-    background:#111827;
-    border:none;
-    color:#fff;
-    padding:12px;
-    border-radius:12px;
-    transition:0.3s;
-}
-
-body.light-mode .form-control{
-    background:#f1f5f9;
-    color:#111;
-}
-
-.form-control:focus{
-    border:1px solid #38bdf8;
-    box-shadow:0 0 10px rgba(56,189,248,0.4);
+    width:100px;
+    flex-shrink: 0;
 }
 
 /* BUTTON */
 .btn-custom{
-    background:linear-gradient(135deg,#38bdf8,#6366f1);
-    color:#fff;
-    padding:12px 30px;
+    width:100%;
+    padding:12px;
     border:none;
     border-radius:50px;
+    background:linear-gradient(135deg,#06b6d4,#6366f1);
+    color:#fff;
     font-weight:600;
-    transition:0.3s;
+    cursor:pointer;
+    transition: transform 0.2s;
 }
 
-.btn-custom:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(56,189,248,0.3);
+.btn-custom:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
 }
 
 /* MAP */
 .map-box{
     width:100%;
     height:100%;
-    min-height:480px;
-    border-radius:22px;
+    min-height:520px;
+    border-radius:20px;
     overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-    border:1px solid rgba(255,255,255,0.08);
-}
-
-body.light-mode .map-box{
-    border:1px solid #e5e7eb;
+    border:1px solid var(--border-color);
 }
 
 .map-box iframe{
@@ -5132,20 +4773,106 @@ body.light-mode .map-box{
     border:0;
 }
 
-/* SECTION TITLE */
-.section-title h2{
-    font-size:42px;
-    font-weight:700;
+/* RESPONSIVE */
+@media(max-width:991px){
+    .map-box{
+        min-height:350px;
+        margin-top: 20px;
+    }
 }
 
-.section-title span{
-    color:#38bdf8;
+@media(max-width:576px){
+    .phone-group{
+        flex-direction: row; /* Mobile size screen-il select code line break aagama correct position-la iruka flex box optimization */
+    }
 }
-
 </style>
 
-<!-- ================= THEME TOGGLE ================= -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+<?php if($success == "true"): ?>
+    Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Your message has been sent.',
+        confirmButtonColor: '#06b6d4'
+    });
+<?php elseif(!empty($error)): ?>
+    Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: '<?php echo $error; ?>',
+        confirmButtonColor: '#6366f1'
+    });
+<?php endif; ?>
+</script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let country = document.getElementById("country").value;
+    let code = document.getElementById("countryCode").value;
+    let phone = document.getElementById("phone").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let service = document.getElementById("service").value;
+    let message = document.getElementById("message").value.trim();
+
+    let phoneRegex = /^[0-9]{10,15}$/;
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // NAME
+    if(name.length < 3){
+        Swal.fire("Error","Name must be at least 3 characters","error");
+        return;
+    }
+
+    // COUNTRY
+    if(country === ""){
+        Swal.fire("Error","Select your country","warning");
+        return;
+    }
+
+    // PHONE
+    if(!phoneRegex.test(phone)){
+        Swal.fire("Error","Enter valid phone (10–15 digits)","error");
+        return;
+    }
+
+    // EMAIL
+    if(!emailRegex.test(email)){
+        Swal.fire("Error","Enter valid email","error");
+        return;
+    }
+
+    // SERVICE
+    if(service === ""){
+        Swal.fire("Error","Select service","warning");
+        return;
+    }
+
+    // MESSAGE
+    if(message.length < 10){
+        Swal.fire("Error","Message must be minimum 10 characters","warning");
+        return;
+    }
+
+    // SUCCESS
+    Swal.fire({
+        icon:'success',
+        title:'Message Ready!',
+        text:'Form validated successfully',
+        confirmButtonColor:'#06b6d4'
+    });
+
+    // OPTIONAL: submit after success
+    this.submit();
+
+});
+</script>
 <script>
 function toggleTheme(){
     document.body.classList.toggle("light-mode");
@@ -5626,8 +5353,12 @@ form.addEventListener("submit", e => {
   });
 
 });
+document.querySelector("form").addEventListener("submit", function(){
+    document.getElementById("sendBtn").disabled = true;
+});
 </script>
 <!----mouse pointer---->
+
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
